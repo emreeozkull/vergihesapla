@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vergi Hesaplama</title>
+    {% load static %}
+
+    <meta name="description" content="ABD Vergi kullanarak kolayca ABD borsasındaki vergilerinizi hesaplayabilirsiniz.">
+    <link rel="stylesheet" href="{% static 'vergihesapla/styles/index.css' %}">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-symbol"></div>
+            <a href="{% url 'index' %}">Vergi <span>Hesapla</span></a>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#features">Özellikler</a></li>
+                <li><a href="#pricing">Fiyatlandırma</a></li>
+                <li><a href="#contact">İletişim</a></li>
+                <li><a href="{% url 'calculator' %}" class="cta-button">Hesapla</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Midas Yatırımcıları için Vergi Hesaplama Çözümü</h1>
+                <p>PDF ekstrenizi yükleyin, vergi hesaplamanızı anında yapın</p>
+                <a href="{% url 'calculator' %}" class="cta-button">Hemen Başla</a>
+            </div>
+            <div class="hero-image">
+                <img src="{% static 'vergihesapla/images/undraw_finance_m6vw.svg' %}" alt="Finance Illustration" />
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <h2>Özellikler</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>PDF Ekstresi Yükleme</h3>
+                    <p>Midas hesap ekstrenizi kolayca yükleyin</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Otomatik Hesaplama</h3>
+                    <p>Vergi tutarınız otomatik olarak hesaplanır</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-download"></i>
+                    <h3>Rapor İndirme</h3>
+                    <p>Detaylı vergi raporunuzu PDF olarak indirin</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="warning-banner">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>
+                Sitemizde sunulan hesaplama aracı sadece referans amaçlıdır. Vergi beyannamesi vermeden önce mutlaka bir mali müşavir ile görüşmenizi öneririz.
+            </p>
+        </div>
+
+        <section id="pricing" class="pricing">
+            <h2>Fiyatlandırma</h2>
+            <p class="pricing-subtitle">
+                2024 yılı ABD hisse senedi işlemlerinizin vergisini hızlı ve güvenilir şekilde hesaplayın
+            </p>
+            <div class="pricing-cards">
+                <div class="pricing-card featured">
+                    <h3>2024 Yılı Vergi Hesaplama</h3>
+                    <p class="price">299</p>
+                    <ul>
+                        <li>2024 yılı ABD hisse senedi vergi hesaplama</li>
+                        <li>Detaylı PDF rapor indirme</li>
+                        <li>Midas ekstresi otomatik analiz</li>
+                        <li>iyzico ile güvenli ödeme</li>
+                    </ul>
+                    <a href="{% url 'calculator' %}" class="cta-button">Hemen Hesapla</a>
+                    <p class="disclaimer">
+                        * Bu hesaplama aracı referans amaçlıdır. Vergi beyannamesi öncesi mali müşavir görüşü alınması önerilir.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ABD Vergi</h4>
+                <p>ABD borsasında işlem yapan yatırımcılar için otomatik vergi hesaplama çözümü.</p>
+                <div class="social-links">
+                    <a href="https://twitter.com/abdvergi" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/company/abdvergi" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://instagram.com/abdvergi" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Hızlı Bağlantılar</h4>
+                <ul>
+                    <li><a href="#features">Özellikler</a></li>
+                    <li><a href="#pricing">Fiyatlandırma</a></li>
+                    <li><a href="#faq">Sık Sorulan Sorular</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Yasal</h4>
+                <ul>
+                    <li><a href="/privacy">Gizlilik Politikası</a></li>
+                    <li><a href="/terms">Kullanım Koşulları</a></li>
+                    <li><a href="/cookies">Çerez Politikası</a></li>
+                    <li><a href="/disclaimer">Yasal Uyarı</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>İletişim</h4>
+                <ul class="contact-info">
+                    <li><i class="far fa-envelope"></i> info@vergihesapla.net</li>
+                    <li><i class="far fa-clock"></i> Pazartesi - Cuma, 09:00 - 18:00</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ABD Vergi. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+</html>

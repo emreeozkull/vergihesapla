@@ -1,0 +1,621 @@
+/* Import base styles */
+:root {
+    --primary: #0F172A;
+    --primary-dark: #0B1222;
+    --primary-light: #1E293B;
+    --primary-lighter: #334155;
+    --text-primary: #0F172A;
+    --text-secondary: #334155;
+    --text-tertiary: #64748B;
+    --bg-light: #f8fafc;
+    --bg-white: #ffffff;
+    --shadow-color: rgba(15, 23, 42, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-light);
+}
+
+/* Header styles */
+header {
+    padding: 3rem 8%;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-symbol {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-lighter) 100%);
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    transform: rotate(45deg);
+    overflow: hidden;
+}
+
+.logo-symbol::before {
+    content: "VH";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+}
+
+.logo a {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+}
+
+.logo a span {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* Main container styles */
+main {
+    padding: 120px 8% 60px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
+}
+
+.calculator-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 3.5rem;
+    border-radius: 24px;
+    box-shadow: 
+        0 4px 6px rgba(15, 23, 42, 0.02),
+        0 12px 24px rgba(15, 23, 42, 0.05);
+    border: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    margin-bottom: 3rem;
+    font-weight: 500;
+}
+
+/* Warning banner styles */
+.warning-banner {
+    background: rgba(234, 179, 8, 0.1);
+    border: 1px solid rgba(234, 179, 8, 0.2);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin: 2rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.warning-banner i {
+    color: #ca8a04;
+    font-size: 1.25rem;
+    margin-top: 0.2rem;
+}
+
+.warning-banner p {
+    color: #854d0e;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex: 1;
+}
+
+/* Upload section styles */
+.upload-section {
+    margin-bottom: 3rem;
+}
+
+.upload-area {
+    border: 2px dashed rgba(15, 23, 42, 0.15);
+    border-radius: 20px;
+    padding: 4rem 3rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, 
+        rgba(15, 23, 42, 0.02) 0%, 
+        rgba(15, 23, 42, 0) 100%
+    );
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.upload-area::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at center,
+        rgba(15, 23, 42, 0.03) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.upload-area.dragover {
+    border-color: var(--primary);
+    background: rgba(15, 23, 42, 0.03);
+    transform: scale(1.01);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.1);
+}
+
+.upload-area i {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.1));
+}
+
+.upload-area p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-button {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 1.5rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
+}
+
+.upload-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15);
+}
+
+.file-info {
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* Uploaded files list */
+.uploaded-files {
+    margin-top: 2.5rem;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.03);
+    position: relative;
+}
+
+.file-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    border-color: rgba(15, 23, 42, 0.12);
+}
+
+.file-item i {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0 1.5rem;
+}
+
+.file-name {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.file-details {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.remove-file {
+    background: none;
+    border: none;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    position: absolute;
+    right: 1.5rem;
+}
+
+.remove-file:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    transform: rotate(90deg);
+}
+
+.remove-file i {
+    font-size: 1.1rem;
+    margin: 0;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+}
+
+/* Action buttons */
+.action-buttons {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.calculate-button {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    padding: 1.25rem 4rem;
+    border-radius: 16px;
+    font-size: 1.15rem;
+    letter-spacing: 0.01em;
+    box-shadow: 
+        0 4px 12px rgba(15, 23, 42, 0.1),
+        0 0 0 2px rgba(255, 255, 255, 0.1) inset;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.calculate-button:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 24px rgba(15, 23, 42, 0.15),
+        0 0 0 2px rgba(255, 255, 255, 0.2) inset;
+}
+
+.calculate-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: var(--text-tertiary);
+}
+
+.calculate-button i {
+    font-size: 1.2rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    main {
+        padding: 100px 5% 40px;
+    }
+
+    .calculator-container {
+        padding: 2.5rem 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    .subtitle {
+        font-size: 1.05rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .upload-area {
+        padding: 3rem 1.5rem;
+    }
+
+    .file-item {
+        padding: 1.25rem;
+    }
+
+    .file-item i {
+        margin: 0 1rem;
+    }
+
+    .calculate-button {
+        width: 100%;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+
+    .validation-message {
+        min-width: auto;
+        width: 90%;
+        bottom: 1rem;
+    }
+
+    .remove-file {
+        right: 1rem;
+    }
+
+    .warning-banner {
+        padding: 1rem;
+        margin: 1.5rem 0;
+    }
+    
+    .warning-banner p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Add progress steps */
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    margin: 4rem 0;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.progress-steps::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 3rem;
+    right: 3rem;
+    height: 2px;
+    background: linear-gradient(to right,
+        var(--primary) 0%,
+        var(--primary) 25%,
+        var(--bg-light) 25%,
+        var(--bg-light) 100%
+    );
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.step {
+    position: relative;
+    z-index: 2;
+    background: white;
+    padding: 0 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+}
+
+.step-number {
+    width: 36px;
+    height: 36px;
+    background: var(--bg-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+}
+
+.step.active .step-number {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.1);
+}
+
+.step.completed .step-number {
+    background: var(--primary);
+    color: white;
+}
+
+.step.completed .step-number::after {
+    content: "✓";
+    position: absolute;
+    font-size: 1rem;
+}
+
+.step-label {
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.step.active .step-label {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Add loading state */
+.calculate-button.loading {
+    position: relative;
+    color: transparent;
+}
+
+.calculate-button.loading::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.8s linear infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-width: 3px;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Add validation feedback */
+.validation-message {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    animation: slideUp 0.3s ease;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
+    min-width: 300px;
+    max-width: 90%;
+    justify-content: center;
+}
+
+.validation-message.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.validation-message.success {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.validation-message i {
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+}
+
+@keyframes slideUp {
+    from { transform: translate(-50%, 100%); opacity: 0; }
+    to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+/* Help section styles */
+.help-section {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.help-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+}
+
+.help-card i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.help-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.help-card ol {
+    padding-left: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.help-card ol li {
+    margin-bottom: 0.75rem;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+}
+
+.faq-item h4 {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.faq-item p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Upload progress styles */
+.upload-progress {
+    height: 4px;
+    background: var(--bg-light);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, var(--primary), var(--primary-light));
+    transition: width 0.3s ease;
+}

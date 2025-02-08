@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vergi Hesaplayıcı</title>
+    {% load static %}
+
+    <meta name="description" content="ABD Vergi kullanarak kolayca ABD borsasındaki vergilerinizi hesaplayabilirsiniz.">
+    <link rel="stylesheet" href="{% static 'vergihesapla/styles/calculator.css' %}">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-symbol"></div>
+            <a href="{% url 'index' %}">Vergi <span>Hesapla</span></a>
+        </div>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h1>Vergi Hesaplayıcı</h1>
+            <p class="subtitle">Midas'ta <em>'Menü / Profil ve Ayarlar / Belgeler / Ekstresler'</em> kısmından bütün işlemlerinize ait aylık hesap ekstrelerinizi yükleyin</p>
+
+            <div class="warning-banner">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>
+Bu hesaplama aracı sadece referans amaçlı olup muhasebe hizmeti niteliği taşımamaktadır. Vergi beyannamesi vermeden önce tüm gelir ve gider kalemlerinizi göz önüne almanızı ve mutlaka bir mali müşavir ile görüşmenizi öneririz.                </p>
+            </div>
+
+            <div class="progress-steps">
+                <div class="step active">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Dosya Yükle</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Hesapla</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Öde</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Rapor İndir</div>
+                </div>
+            </div>
+
+            <div class="upload-section">
+                <div class="upload-area" id="dropZone">
+                    <input type="file" id="fileInput" multiple accept=".pdf" class="file-input" />
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>PDF dosyalarını sürükleyin veya</p>
+                    <button class="upload-button">Dosya Seçin</button>
+                    <p class="file-info">Maximum dosya boyutu: 10MB</p>
+                </div>
+
+                <div class="uploaded-files" id="fileList">
+                    <!-- Uploaded files will be listed here -->
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="calculate-button" disabled>
+                    <i class="fas fa-calculator"></i>
+                    Vergi Hesapla
+                </button>
+            </div>
+
+            <div class="help-section">
+                <div class="help-card">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>Nasıl Çalışır?</h3>
+                    <ol>
+                        <li>Midas uygulamasından aylık ekstrelerinizi indirin</li>
+                        <li>Tüm ekstreleri buraya yükleyin</li>
+                        <li>Sistem otomatik olarak verginizi hesaplayacak</li>
+                        <li>Detaylı raporunuzu indirin</li>
+                    </ol>
+                </div>
+                <div class="help-card">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>Sık Sorulan Sorular</h3>
+                    <div class="faq-item">
+                        <h4>Hangi dosyaları yüklemeliyim?</h4>
+                        <p>Midas'tan indirdiğiniz tüm aylık hesap ekstrelerinizi yüklemelisiniz.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Dosyalarım güvende mi?</h4>
+                        <p>Dosyalarınız şifreli olarak işlenir ve hesaplama sonrası silinir.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="{% static 'vergihesapla/scripts/calculator.js' %} "></script>
+</body>
+</html>

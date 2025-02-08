@@ -4,6 +4,12 @@ const fileList = document.getElementById('fileList');
 const calculateButton = document.querySelector('.calculate-button');
 const uploadButton = document.querySelector('.upload-button');
 
+// Add this at the top with your other constants
+let currentCalculatorId = null;
+
+// Add this near the top with other constants
+const calculateForm = document.getElementById('calculateForm');
+
 // Handle click on upload button
 uploadButton.addEventListener('click', () => {
     fileInput.click();
@@ -87,6 +93,9 @@ function handleFiles(e) {
             </button>
         `;
         fileList.appendChild(fileElement);
+
+        // Upload the file immediately after validation
+        uploadPDF(file);
     });
 
     if (validFiles.length > 0) {
@@ -96,7 +105,90 @@ function handleFiles(e) {
     updateCalculateButton();
 }
 
+// Update uploadPDF function
+async function uploadPDF(file) {
+    const formData = new FormData();
+    formData.append('pdf', file);
+    
+    // Add calculator_id to formData if we have one
+    if (currentCalculatorId) {
+        formData.append('calculator_id', currentCalculatorId);
+    }
+    
+    try {
+        const response = await fetch('upload-pdf/', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken')
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Upload failed');
+        }
+
+        const data = await response.json();
+        console.log('Upload successful:', data);
+        // Store the calculator_id for future uploads
+        currentCalculatorId = data.calculator_id;
+    } catch (error) {
+        console.error('Upload error:', error);
+        showValidation('Dosya yükleme başarısız oldu.', 'error');
+    }
+}
+
+// Add function to get CSRF token
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
 function updateCalculateButton() {
     const hasFiles = fileList.children.length > 0;
     calculateButton.disabled = !hasFiles;
+    
 }
+
+// Update the calculate button click handler
+calculateButton.addEventListener('click', async () => {
+    if (!currentCalculatorId) {
+        showValidation('Lütfen önce PDF dosyası yükleyin.', 'error');
+        return;
+    }
+
+    try {
+        const response = await fetch('/calculator/results/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')
+            },
+            body: JSON.stringify({
+                calculator_id: currentCalculatorId
+            })
+        });
+
+        if (response.ok) {
+            // Redirect to results page with the response HTML
+            document.open();
+            document.write(await response.text());
+            document.close();
+        } else {
+            throw new Error('Calculation failed');
+        }
+    } catch (error) {
+        console.error('Calculation error:', error);
+        showValidation('Hesaplama işlemi başarısız oldu.', 'error');
+    }
+});

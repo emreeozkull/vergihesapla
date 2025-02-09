@@ -14,7 +14,7 @@ def extract_investment_transactions(pdf_path):
 
     print(text)
 
-    with open(f'{pdf_path}.txt', 'w') as f:
+    with open(f'{pdf_path.rstrip(".pdf")}.txt', 'w') as f:
         f.write(text)
 
 
@@ -27,6 +27,5 @@ def extract_all_transactions(pdf_directory):
             print(f"\nProcessing file: {filename}")
             
             extract_investment_transactions(pdf_path)
-    
 
 

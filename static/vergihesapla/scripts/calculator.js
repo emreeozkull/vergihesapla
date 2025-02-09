@@ -78,25 +78,69 @@ function handleFiles(e) {
         }
         return true;
     });
-
-    validFiles.forEach(file => {
-        const fileElement = document.createElement('div');
-        fileElement.className = 'file-item';
-        fileElement.innerHTML = `
-            <i class="far fa-file-pdf"></i>
-            <div class="file-details">
-                <span class="file-name">${file.name}</span>
-                <span class="file-size">${(file.size / 1024 / 1024).toFixed(2)} MB</span>
-            </div>
-            <button class="remove-file" onclick="this.parentElement.remove(); updateCalculateButton();">
-                <i class="fas fa-times"></i>
-            </button>
-        `;
-        fileList.appendChild(fileElement);
-
-        // Upload the file immediately after validation
-        uploadPDF(file);
-    });
+    if (validFiles.length > 1) {
+        console.log('multiple files detected... \n creating new calculator...');
+        console.log('currentCalculatorId: ', currentCalculatorId);
+        fetch('/calculator/api/create-calculator/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')
+            },
+            body: JSON.stringify({
+                name: 'multiple_files_calculator',
+                calculator_id: currentCalculatorId
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Calculator created:', data);
+            currentCalculatorId = data.calculator_id;
+            // Now upload all files with the new calculator_id
+            validFiles.forEach(file => {
+                const fileElement = document.createElement('div');
+                fileElement.className = 'file-item';
+                fileElement.innerHTML = `
+                    <i class="far fa-file-pdf"></i>
+                    <div class="file-details">
+                        <span class="file-name">${file.name}</span>
+                        <span class="file-size">${(file.size / 1024 / 1024).toFixed(2)} MB</span>
+                    </div>
+                    <button class="remove-file" onclick="this.parentElement.remove(); updateCalculateButton();">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                fileList.appendChild(fileElement);
+                console.log('file uploading started... \n file number: ', files.length);
+                uploadPDF(file);
+            });
+            updateCalculateButton();
+        })
+        .catch(error => {
+            console.error('Error creating calculator:', error);
+            showValidation('Hesaplayıcı oluşturma hatası.', 'error');
+        });
+        updateCalculateButton();
+    } else {
+        // Single file upload
+        validFiles.forEach(file => {
+            const fileElement = document.createElement('div');
+            fileElement.className = 'file-item';
+            fileElement.innerHTML = `
+                <i class="far fa-file-pdf"></i>
+                <div class="file-details">
+                    <span class="file-name">${file.name}</span>
+                    <span class="file-size">${(file.size / 1024 / 1024).toFixed(2)} MB</span>
+                </div>
+                <button class="remove-file" onclick="this.parentElement.remove(); updateCalculateButton();">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            fileList.appendChild(fileElement);
+            console.log('file uploading started... \n file number: ', files.length);
+            uploadPDF(file);
+        });
+    }
 
     if (validFiles.length > 0) {
         showValidation('Dosyalar başarıyla yüklendi.', 'success');
@@ -155,6 +199,7 @@ function getCookie(name) {
 }
 
 function updateCalculateButton() {
+    console.log('updateCalculateButton function called');
     const hasFiles = fileList.children.length > 0;
     calculateButton.disabled = !hasFiles;
     

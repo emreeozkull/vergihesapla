@@ -4,12 +4,33 @@ from .models import Calculator, CalculatorPDF
 from .pdf_checker import extract_investment_transactions
 import json
 from django.views.decorators.csrf import csrf_exempt
-
+from .midas_text_to_json import main as text_to_json
+from .midas import main as midas_main
 # Create your views here.
 
 def calculator(request):
     return render(request,"calculator/calculator.html")
 
+def create_id_calculator(request):
+    if request.method == 'POST':
+        try:
+            # Parse JSON data from request body
+            data = json.loads(request.body)
+            calculator_id = data.get('calculator_id')
+            print("came to server calculator_id: ", calculator_id)
+            if calculator_id is not None:    
+                print("calculator_id exists: ", calculator_id)
+                return JsonResponse({'calculator_id': calculator_id})
+            else:
+                print("creating new calculator, calculator_id does not exist", calculator_id)
+                # Create a new calculator
+                calculator = Calculator.objects.create(name="default_calculator")
+                return JsonResponse({'calculator_id': calculator.id})
+        except json.JSONDecodeError:
+            return HttpResponseBadRequest("Invalid JSON data")
+    else:
+        return HttpResponseBadRequest("Invalid request method")
+    
 def upload_pdf(request):
     if request.method == 'POST':
         # Get calculator_id from request or create new calculator
@@ -18,8 +39,8 @@ def upload_pdf(request):
         if calculator_id:
             calculator = Calculator.objects.get(id=calculator_id)
         else:
-            calculator = Calculator.objects.create(name="default_for_pdf")
-
+            print("!!!no calcualtor id in request to upload_pdf, calculator_id: ", calculator_id)
+            return JsonResponse({'error': 'Calculator ID is required'}, status=400)
         pdf_object = CalculatorPDF.objects.create(
             calculator=calculator,
             pdf=request.FILES.get('pdf')
@@ -53,69 +74,67 @@ def calculate_results(request):
             
             # Initialize variables for calculations
             total_profit_loss = 0
+            total_transaction_count = 0
             transactions = []
-            
-            # Process each PDF
+
             for pdf in pdfs:
-                # Get transactions from the PDF
-                pdf_transactions = extract_investment_transactions(pdf.pdf.path)
-                
-                # Add transactions to the list and calculate totals
-                for transaction in pdf_transactions:
-                    # Process each transaction
-                    transaction_amount = float(transaction.get('total', 0))
-                    if transaction.get('type') == 'Satış':
-                        total_profit_loss += transaction_amount
-                    else:
-                        total_profit_loss -= transaction_amount
-                    
-                    transactions.append({
-                        'date': transaction.get('date'),
-                        'symbol': transaction.get('symbol'),
-                        'type': transaction.get('type'),
-                        'quantity': transaction.get('quantity'),
-                        'price': transaction.get('price'),
-                        'total': transaction.get('total')
+                text_path = pdf.pdf.path.rstrip(".pdf") + ".txt"
+                #DEBUGprint(f"text path: {text_path}")
+                base_dir = text_path.rsplit("/", 1)[0]
+                text_to_json(base_dir)
+                #transactions = json.load(open(f'{base_dir}/midas_transactions_2024.json'))
+                #DEBUGprint(f"transactions: {transactions}")
+            #DEBUGprint("starting to calculate with midas_main ...\n base_dir: ", base_dir)
+            calculated_stocks = midas_main(f'{base_dir}/midas_transactions_2024.json')
+            total_profit_in_tl = 0 
+            for stock in calculated_stocks:
+                print(f"stock.symbol:{stock.symbol} stock.total_income:{stock.total_income} stock.total_income_usd:{stock.total_income_usd}")
+                total_profit_loss += stock.total_income_usd
+                total_profit_in_tl += stock.total_income
+                total_transaction_count += int(len(stock.all_transactions))
+                transactions.append({
+                        'symbol': stock.symbol,
+                        'type': str(len(stock.all_transactions)),
+                        #'quantity': stock.quantity,
+                        #'price': stock.price,
+                        'total': f"{stock.total_income:.2f}", 
+                        'total_usd': f"{stock.total_income_usd:.2f}"
                     })
-            
-            # Calculate tax (example: 25% of profit)
-            tax_amount = max(0, total_profit_loss * 0.25)
+                
+
+            # Calculate tax amount
+            if total_profit_in_tl <= 158000:
+                tax_amount = total_profit_in_tl * 0.15
+            elif total_profit_in_tl <= 330000:
+                total_profit_in_tl -= 158000
+                tax_amount = 23700 + total_profit_in_tl * 0.20
+            elif total_profit_in_tl <= 800000:
+                total_profit_in_tl -= 330000
+                tax_amount = 58100 + total_profit_in_tl * 0.27
+            elif total_profit_in_tl <= 4300000:
+                total_profit_in_tl -= 800000
+                tax_amount = 185000 + total_profit_in_tl * 0.35
+            elif total_profit_in_tl > 4300000:
+                total_profit_in_tl -= 4300000
+                tax_amount = 1410000 + total_profit_in_tl * 0.40
+            else: 
+                tax_amount = 0
+                print("ERROR in tax amount calculation")
+
             
             context = {
-                'total_profit_loss': f"{total_profit_loss:,.2f}",
+                'total_profit_loss': f"{total_profit_in_tl:,.2f}",
                 'tax_amount': f"{tax_amount:,.2f}",
-                'transaction_count': len(transactions),
+                'transaction_count': total_transaction_count,
                 'transactions': transactions
             }
             
             return render(request, 'vergihesapla/results.html', context)
         except Exception as e:
             print(f"Error: {str(e)}")
-            context = {
-                'total_profit_loss': "22050",
-                'tax_amount': "5512.5",
-                'transaction_count': 3,
-                'transactions': [
-                    {
-                        'date': "2024-01-15",
-                        'symbol': "AAPL",
-                        'type': "Alış",
-                        'quantity': 10,
-                        'price': 180.25,
-                        'total': 1802.50
-                    },
-                    {
-                        'date': "2024-01-15",
-                        'symbol': "AAPL",
-                        'type': "Satış",
-                        'quantity': 10,
-                        'price': 180.25,
-                        'total': 1802.50
-                    }
-                ]
-            }
 
             return render(request, 'vergihesapla/results.html', context)
+        
         except Calculator.DoesNotExist:
             return JsonResponse({'error': 'Calculator not found'}, status=404)
         except Exception as e:

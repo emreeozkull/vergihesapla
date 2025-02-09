@@ -50,23 +50,17 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Tarih</th>
                             <th>Hisse</th>
-                            <th>İşlem Tipi</th>
-                            <th>Miktar</th>
-                            <th>Fiyat</th>
-                            <th>Toplam</th>
+                            <th>Kar/Zarar</th>
+                            <th>Kar/Zarar (USD)</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for transaction in transactions %}
                         <tr>
-                            <td>{{ transaction.date }}</td>
                             <td>{{ transaction.symbol }}</td>
-                            <td>{{ transaction.type }}</td>
-                            <td class="number">{{ transaction.quantity }}</td>
-                            <td class="number">{{ transaction.price }} $</td>
-                            <td class="number">{{ transaction.total }} $</td>
+                            <td class="number">{{ transaction.total }}₺</td>
+                            <td class="number">{{ transaction.total_usd }}USD</td>
                         </tr>
                         {% endfor %}
                     </tbody>

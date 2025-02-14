@@ -6,6 +6,7 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from .midas_text_to_json import main as text_to_json
 from .midas import main as midas_main
+from .midasPortfolio import AccountStatement
 # Create your views here.
 
 def calculator(request):
@@ -41,6 +42,7 @@ def upload_pdf(request):
         else:
             print("!!!no calcualtor id in request to upload_pdf, calculator_id: ", calculator_id)
             return JsonResponse({'error': 'Calculator ID is required'}, status=400)
+        
         pdf_object = CalculatorPDF.objects.create(
             calculator=calculator,
             pdf=request.FILES.get('pdf')
@@ -56,8 +58,55 @@ def upload_pdf(request):
 
 def check_pdf(pdf_id):
     pdf = CalculatorPDF.objects.get(id=pdf_id)
+    
+    #check for endswith pdf
     extract_investment_transactions(pdf.pdf.path)
-    print("pdf checked")
+
+    accountStatement = AccountStatement(pdf.pdf.path)
+    account_info = accountStatement.account_info
+    pdf.account_opening_date = account_info.get("account_opening_date")[0]
+    print("INFO account_opening_date: ", pdf.account_opening_date, type(pdf.account_opening_date))
+    pdf.customer_name = account_info.get("customer_name")
+    pdf.tckn = account_info.get("tckn")
+    print("INFO customer_name: ", pdf.customer_name, pdf.tckn, type(pdf.tckn))
+
+    pdf.portfolio_date = accountStatement.statement_dates[0]
+    print("INFO portfolio_date : ", pdf.portfolio_date, type(pdf.portfolio_date))
+
+    pdf.portfolio = accountStatement.portfolio_summary[1]
+    print("INFO portfolio: ", pdf.portfolio, type(pdf.portfolio))
+
+    if accountStatement.statement_dates[1] != accountStatement.portfolio_summary[0][0]:
+        print("WARNING: Portfolio date does not match statement date.")
+        raise ValueError("Portfolio date does not match statement date.")
+    
+    # check account info with all calculator info 
+    # chech account_opening_date  for transactions
+
+
+    if pdf.calculator.tckn == None:
+        pdf.calculator.tckn = pdf.tckn
+        pdf.calculator.save()
+    elif pdf.tckn != pdf.calculator.tckn:
+        print("ERROR: TCKN does not match.")
+        raise ValueError("TCKN does not match.")
+
+    if pdf.calculator.customer_name == None:
+        pdf.calculator.customer_name = pdf.customer_name
+        pdf.calculator.save()
+    elif pdf.customer_name != pdf.calculator.customer_name:
+        print("ERROR: Customer name does not match.")
+        raise ValueError("Customer name does not match.")
+
+    if pdf.calculator.account_opening_date == None:
+        pdf.calculator.account_opening_date = pdf.account_opening_date
+        pdf.calculator.save()
+    elif pdf.account_opening_date != pdf.calculator.account_opening_date:
+        print("ERROR: Account opening date does not match.")
+        raise ValueError("Account opening date does not match.")
+
+    pdf.save()
+    print("pdf checked and saved")
 
 def calculate_results(request):
     if request.method == 'POST':

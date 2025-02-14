@@ -78,8 +78,8 @@ function handleFiles(e) {
         }
         return true;
     });
-    if (validFiles.length > 1) {
-        console.log('multiple files detected... \n creating new calculator...');
+    if (validFiles.length > 0) {
+        console.log('files detected... \n creating new calculator...');
         console.log('currentCalculatorId: ', currentCalculatorId);
         fetch('/calculator/api/create-calculator/', {
             method: 'POST',
@@ -122,24 +122,7 @@ function handleFiles(e) {
         });
         updateCalculateButton();
     } else {
-        // Single file upload
-        validFiles.forEach(file => {
-            const fileElement = document.createElement('div');
-            fileElement.className = 'file-item';
-            fileElement.innerHTML = `
-                <i class="far fa-file-pdf"></i>
-                <div class="file-details">
-                    <span class="file-name">${file.name}</span>
-                    <span class="file-size">${(file.size / 1024 / 1024).toFixed(2)} MB</span>
-                </div>
-                <button class="remove-file" onclick="this.parentElement.remove(); updateCalculateButton();">
-                    <i class="fas fa-times"></i>
-                </button>
-            `;
-            fileList.appendChild(fileElement);
-            console.log('file uploading started... \n file number: ', files.length);
-            uploadPDF(file);
-        });
+        showValidation('Lütfen PDF dosyalarını yükleyin.', 'error');
     }
 
     if (validFiles.length > 0) {

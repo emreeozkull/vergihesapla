@@ -45,6 +45,8 @@ class CalculatorPDF(models.Model):
     portfolio = models.JSONField(null=True, blank=True)
     portfolio_date = models.DateTimeField(null=True, blank=True)
 
+    transactions = models.JSONField(null=True, blank=True) #strptime(x['tarih'], '%d/%m/%y %H:%M:%S')
+
 
     def __str__(self):
         return self.calculator.name

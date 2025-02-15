@@ -1,11 +1,10 @@
+import json
+
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponseBadRequest
-from .models import Calculator, CalculatorPDF
-from .pdf_checker import extract_investment_transactions
-import json
 from django.views.decorators.csrf import csrf_exempt
-from .midas_text_to_json import main as text_to_json
-from .midas import main as midas_main
+
+from .models import Calculator, CalculatorPDF
 from .midasPortfolio import AccountStatement
 # Create your views here.
 
@@ -60,14 +59,13 @@ def check_pdf(pdf_id):
     pdf = CalculatorPDF.objects.get(id=pdf_id)
     
     #check for endswith pdf
-    extract_investment_transactions(pdf.pdf.path)
 
     accountStatement = AccountStatement(pdf.pdf.path)
     account_info = accountStatement.account_info
     pdf.account_opening_date = account_info.get("account_opening_date")[0]
     print("INFO account_opening_date: ", pdf.account_opening_date, type(pdf.account_opening_date))
     pdf.customer_name = account_info.get("customer_name")
-    pdf.tckn = account_info.get("tckn")
+    pdf.tckn = int(account_info.get("tckn"))
     print("INFO customer_name: ", pdf.customer_name, pdf.tckn, type(pdf.tckn))
 
     pdf.portfolio_date = accountStatement.statement_dates[0]
@@ -88,22 +86,24 @@ def check_pdf(pdf_id):
         pdf.calculator.tckn = pdf.tckn
         pdf.calculator.save()
     elif pdf.tckn != pdf.calculator.tckn:
-        print("ERROR: TCKN does not match.")
+        print(f"ERROR: TCKN does not match. pdf.tckn: {pdf.tckn}, pdf.calculator.tckn: {pdf.calculator.tckn} and types are: {type(pdf.tckn)}, {type(pdf.calculator.tckn)}")
         raise ValueError("TCKN does not match.")
 
     if pdf.calculator.customer_name == None:
         pdf.calculator.customer_name = pdf.customer_name
         pdf.calculator.save()
     elif pdf.customer_name != pdf.calculator.customer_name:
-        print("ERROR: Customer name does not match.")
+        print(f"ERROR: Customer name does not match. pdf.customer_name: {pdf.customer_name}, pdf.calculator.customer_name: {pdf.calculator.customer_name} and types are: {type(pdf.customer_name)}, {type(pdf.calculator.customer_name)}")
         raise ValueError("Customer name does not match.")
 
     if pdf.calculator.account_opening_date == None:
         pdf.calculator.account_opening_date = pdf.account_opening_date
         pdf.calculator.save()
-    elif pdf.account_opening_date != pdf.calculator.account_opening_date:
-        print("ERROR: Account opening date does not match.")
+    elif pdf.account_opening_date.astimezone() != pdf.calculator.account_opening_date:
+        print(f"ERROR: Account opening date does not match. pdf.date : {pdf.account_opening_date}, pdf.calculator.account_opening_date: {pdf.calculator.account_opening_date}, types are: {type(pdf.account_opening_date)}, {type(pdf.calculator.account_opening_date)}")
         raise ValueError("Account opening date does not match.")
+
+    pdf.transactions = accountStatement.extract_transactions() # change this to variable in accountStatement
 
     pdf.save()
     print("pdf checked and saved")
@@ -119,22 +119,19 @@ def calculate_results(request):
             calculator = Calculator.objects.get(id=calculator_id)
             
             # Get all PDFs associated with this calculator
-            pdfs = CalculatorPDF.objects.filter(calculator=calculator)
+            pdfs = CalculatorPDF.objects.filter(calculator=calculator).order_by('portfolio_date')
             
+            for pdf in pdfs:
+                print(f"ordered pdf: {pdf.portfolio_date}")
+                # check if any pdf is missing 
+
             # Initialize variables for calculations
             total_profit_loss = 0
             total_transaction_count = 0
             transactions = []
-
-            for pdf in pdfs:
-                text_path = pdf.pdf.path.rstrip(".pdf") + ".txt"
-                #DEBUGprint(f"text path: {text_path}")
-                base_dir = text_path.rsplit("/", 1)[0]
-                text_to_json(base_dir)
-                #transactions = json.load(open(f'{base_dir}/midas_transactions_2024.json'))
-                #DEBUGprint(f"transactions: {transactions}")
-            #DEBUGprint("starting to calculate with midas_main ...\n base_dir: ", base_dir)
-            calculated_stocks = midas_main(f'{base_dir}/midas_transactions_2024.json')
+            
+            
+            calculated_stocks = midas_main(pdfs)
             total_profit_in_tl = 0 
             for stock in calculated_stocks:
                 print(f"stock.symbol:{stock.symbol} stock.total_income:{stock.total_income} stock.total_income_usd:{stock.total_income_usd}")
@@ -150,6 +147,7 @@ def calculate_results(request):
                         'total_usd': f"{stock.total_income_usd:.2f}"
                     })
                 
+            profit_in_tl = total_profit_in_tl
 
             # Calculate tax amount
             if total_profit_in_tl <= 158000:
@@ -172,7 +170,7 @@ def calculate_results(request):
 
             
             context = {
-                'total_profit_loss': f"{total_profit_in_tl:,.2f}",
+                'total_profit_loss': f"{profit_in_tl:,.2f}",
                 'tax_amount': f"{tax_amount:,.2f}",
                 'transaction_count': total_transaction_count,
                 'transactions': transactions
@@ -182,7 +180,7 @@ def calculate_results(request):
         except Exception as e:
             print(f"Error: {str(e)}")
 
-            return render(request, 'vergihesapla/results.html', context)
+            return JsonResponse({'error': str(e)}, status=500)
         
         except Calculator.DoesNotExist:
             return JsonResponse({'error': 'Calculator not found'}, status=404)
@@ -191,3 +189,67 @@ def calculate_results(request):
             
     return render(request, 'vergihesapla/results.html')
 
+
+import json
+import datetime
+from .stocks import Stock, Portfolio
+
+
+def print_sold_list(sold_list):
+    for i in sold_list:
+        print(f"date: {i['date']} adet: {i['adet']} fiyat: {i['fiyat']} income: {i['income']} income_usd: {i['income_usd']} buy_list_end: {i['buy_list_end']}")
+        for j in i['buy_list_copy']:
+            print(f" date: {j['date']} adet: {j['adet']} fiyat: {j['fiyat']} toplam_tutar: {j['toplam_tutar']}")
+
+
+def midas_main(pdfs): 
+    
+    # portfolios
+    all_portfolios = {}
+    transactions = []
+    for pdf in pdfs:
+        all_portfolios[pdf.portfolio_date] = pdf.portfolio
+        for transaction in pdf.transactions:
+            transaction["date"] = datetime.datetime.strptime(transaction["tarih"], "%d/%m/%y %H:%M:%S")
+            transactions.append(transaction)
+        #DEBUGprint("all transaction date format transformation is finished.")
+    
+
+    symbols = {}
+    first_transaction_date = transactions[0]["date"]
+    first_transaction = transactions[0]
+    for i in transactions:
+        if first_transaction_date > i["date"]:
+            first_transaction_date = i["date"]
+            first_transaction = i
+            #DEBUGprint(f"first_transaction_date: {first_transaction_date}")
+        if i["sembol"] not in symbols:
+            symbols[i["sembol"]] = [i]
+        else:
+            symbols[i["sembol"]].append(i)
+    #DEBUGprint(f"symbol appending is finished. symbols: {symbols}\n starting to portfolio...")
+    portfolio = Portfolio(first_transaction, all_poftfolios=all_portfolios)
+    #DEBUGprint("portfolio is created. portfolio: ",portfolio.portfolio)
+    calculated_symbols = []
+    all_income = 0
+    all_income_usd = 0
+    for symbol in symbols:
+        print(f"\n{symbol} is starting...")
+        stock = Stock(symbols[symbol],portfolio)
+        stock.calculate()
+        if len(stock.buy_list) > 0:
+            print("ERROR: buy list is not empty")
+        
+        calculated_symbols.append(stock)
+        all_income += stock.total_income
+        all_income_usd += stock.total_income_usd
+        #print("\n*** last calcualted portfolio: ",stock.portfolio.portfolio)
+    
+    print()
+    print(f"all_income: {all_income}")
+    print(f"all_income_usd: {all_income_usd}")
+
+    print("midas.py is finished results: ")
+    for i in calculated_symbols:
+        print(f"{i.symbol} {int(i.total_income)}₺ ${int(i.total_income_usd)}")
+    return calculated_symbols

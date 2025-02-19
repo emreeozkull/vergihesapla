@@ -1,4 +1,5 @@
 import re
+import json
 from datetime import datetime, timedelta, timezone
 
 from .models import Calculator, CalculatorPDF, Transaction, Portfolio
@@ -152,7 +153,7 @@ class Midas:
             date = f"{parts[0]} {parts[1]}"
             transaction_date = datetime.strptime(date, '%d/%m/%y %H:%M:%S')
             transaction_date = transaction_date.replace(tzinfo=timezone.utc)
-            
+
             # Handle cases where the transaction was cancelled or rejected
             if parts[6] in ['İptal', 'Reddedildi','İptal Edildi']:
                 return None
@@ -192,16 +193,29 @@ class Midas:
         transactions = []
         print(f"\nProcessing file: {self.path}")
 
-        # Find the YATIRIM İŞLEMLERİ section !!! make it more consistent 
-        match = re.search(r'YATIRIM İŞLEMLERİ \((.*?)\)(.*?)HESAP İŞLEMLERİ', 
-                        self.text, re.DOTALL | re.MULTILINE)
         
-        if match:
-            transactions_section = match.group(2)
-            line_count = sum(1 for line in transactions_section.split('\n') if line.strip())
+        transactions_section = []
+        
+        transaction_bool = False
+
+        for line in self.lines:
+            if "YATIRIM İŞLEMLERİ" in line:
+                transaction_bool = True
+
+            if "HESAP İŞLEMLERİ" in line:
+                transaction_bool = False
+
+            if transaction_bool and "Tarih" not in line and "Gerçekleşti" in line:
+                transactions_section.append(line)
+
+        
+        if len(transactions_section) > 0:
+            
+            line_count = len(transactions_section)
+
             print(f"Found transactions section with {line_count} lines")
             
-            for line in transactions_section.split('\n'):
+            for line in transactions_section:
                 # Skip empty lines, headers, and address lines
                 if (line.strip() and 
                     not line.startswith('Tarih') and 
@@ -210,12 +224,32 @@ class Midas:
                     len(line.split()) >= 10):  # Basic validation for transaction lines
                     
                     transaction = self.parse_transaction_line(line)
-                    if transaction is not None:
+                    if transaction is not None and transaction in transactions:
+                        print(f"Transaction {transaction} already exists")
+                        with open("duplicate_transactions.txt", "a") as f : 
+                            f.write(line + "\n")
+                            f.write(f"{transaction} !!! transaction is already in the list: ")
+                            for t in transactions:
+                                f.write(f"{t}\n")
+                        raise ValueError(f"Transaction {transaction} already exists")
+                    if transaction is not None and transaction not in transactions:
                         transactions.append(transaction)
         else:
             print("!!! transaction lines are not found in this pdf")
+            with open("error_transaction.txt", "a") as f : 
+                for line in self.lines:
+                    f.write(line + "\n")
+                f.write("!!! transaction lines are not found in this pdf")
 
         if transactions:
+
+            distinct_transactions = Transaction.objects.filter(pdf_id = self.pdf_object.id).distinct()
+            if len(distinct_transactions) != len(transactions):
+                print(f"WARNING: {len(transactions) - len(distinct_transactions)} transactions were filtered out")
+                with open("duplicate_transactions.txt", "a") as f : 
+                    f.write(f"WARNING: {len(transactions) - len(distinct_transactions)} transactions were filtered out")
+                    for t in distinct_transactions:
+                        f.write(f"{t}\n")
             
             sorted_transactions = Transaction.objects.filter(pdf_id = self.pdf_object.id).order_by('date')
 
@@ -231,3 +265,107 @@ class Midas:
             return sorted_transactions
         
         return []
+
+with open("/Users/emreozkul/Desktop/dev-3/scripts-for-midas/hesaplayıcı/converted_ufe.json","r") as read_file :
+    ufe_data = json.load(read_file)
+
+with open("/Users/emreozkul/Desktop/dev-3/scripts-for-midas/hesaplayıcı/exchange_rates_2020-2024.json","r") as read_file : # day-month-year
+    rates = json.load(read_file)
+
+
+def get_rate(date: datetime):
+    formatted_date = date.strftime("%d-%m-%Y")
+    
+    # If exact date not found, get closest previous date
+    while date:
+        date -= timedelta(days=1)
+        formatted_date = date.strftime("%d-%m-%Y")
+        if formatted_date in rates:
+            return Decimal(rates[formatted_date])
+    
+    raise ValueError(f"No exchange rate found for date {formatted_date}")
+
+
+def get_ufe(month:int,year:int):
+  if month == 1 :
+    month = 12 
+    year -=1 
+  else :
+    month -=1 
+
+  for i in ufe_data :
+    if i["Year"] == f"{year}" :
+      ufe = i[f"{month:02d}"]
+      return Decimal(ufe) 
+    
+def calculate_income(sell_quantity, buy_price, sell_price, buy_date, sell_date):
+    sell_ufe = get_ufe(sell_date.month, sell_date.year)
+    buy_ufe = get_ufe(buy_date.month, buy_date.year)
+    
+    # Calculate base amounts
+    sell_amount = sell_quantity * sell_price * get_rate(sell_date)
+    buy_amount = sell_quantity * buy_price * get_rate(buy_date)
+    
+    # Apply UFE adjustment if needed
+    if (sell_ufe - buy_ufe)/buy_ufe > Decimal(0.1):
+        adjusted_buy_amount = buy_amount * (sell_ufe/buy_ufe)
+        print(f"ufe income {sell_amount - adjusted_buy_amount}, normal income was {sell_amount - buy_amount}")
+        return sell_amount - adjusted_buy_amount
+    else:
+        print(f"normal income, ufe: {sell_ufe} {buy_ufe} income: {sell_amount - buy_amount}")
+        return sell_amount - buy_amount
+
+class Stock:
+
+    invalid_transactions = []
+    invalid_sell_transactions = []
+    profit = 0
+
+    def __init__(self, symbol: str):
+        self.symbol = symbol
+        self.transactions = []
+        self.buy_transactions = []
+        self.calculated_sell_transactions = []
+        self.profits_sell_transactions = []
+        
+        self.portfolios = [] # make it with defaultdict
+
+    def add_transaction(self, transaction: Transaction):
+        if transaction.transaction_type == "Alış":
+            self.buy_transactions.append(transaction)
+
+    def calculate_sell_transaction(self, transaction: Transaction):
+        if transaction.transaction_type == "Satış":
+            for buy_transaction in self.buy_transactions:
+                if buy_transaction.symbol == transaction.symbol:
+                    if buy_transaction.date < transaction.date:
+
+                        if buy_transaction.quantity <= 0:
+                            continue
+                        
+                        transaction_quantity = min(buy_transaction.quantity, transaction.quantity)
+                        income = calculate_income(transaction_quantity, buy_transaction.price, transaction.price, buy_transaction.date, transaction.date)
+                        self.profit += income
+                        self.profits_sell_transactions.append(income)
+
+                        buy_transaction.quantity -= transaction_quantity
+                        transaction.quantity -= transaction_quantity
+
+                        if transaction.quantity <= 0:
+                            print(f"Transaction calculated: {transaction} with profits: {self.profits_sell_transactions}")
+                            self.calculated_sell_transactions.append(transaction)
+                            break
+
+            if transaction.quantity > 0:
+                self.invalid_sell_transactions.append(transaction)
+                print(f"Transaction buy transactions: {self.buy_transactions}")
+                raise ValueError(f"Transaction {transaction} has {transaction.quantity} quantity left")
+
+
+
+
+    def add_portfolio(self, portfolio: Portfolio):
+        self.portfolios.append(portfolio)
+
+
+        

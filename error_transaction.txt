@@ -1,0 +1,703 @@
+Midas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.getmidas.com
+/1 1
+01/10/22 -  HESAP EKSTRESİ31/10/22
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : şehitekrem mah. adakaranfili sok. no:
+29/4 Başiskele / Kocaeli / Türkiye
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 0 USD
+Toplam Portföy Değeri : 0 USD
+PORTFÖY ÖZETİ ( )31/10/22
+Kayıt bulunmamaktadır.
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.31/10/22
+YATIRIM İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.midasmenkul.com
+/1 1
+01/06/23 -  HESAP EKSTRESİ30/06/23
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : şehitekrem mah. adakaranfili sok. no:
+29/4 Başiskele / Kocaeli / Türkiye
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 0.1 USD
+Toplam Portföy Değeri : 1342.01059975836 USD
+İşlem Hacmi : 0,00 USD
+PORTFÖY ÖZETİ ( )30/06/23
+Sermaya Piyasası Aracı Adet Hisse Başı Ortalama Maliyet Kar / Zarar* Toplam Değeri (YP)
+PYPL - PayPal 0,216030137 76,98 USD -2,21 USD 14,42 USD
+SNAP - Snap 4,975308641 10,53 USD 6,52 USD 58,91 USD
+MSFT - Microsoft 0,181738782 274,79 USD 11,95 USD 61,89 USD
+RIVN - Rivian Automotive, I... 4,777235772 12,30 USD 20,83 USD 79,59 USD
+TSLA - Tesla 1,694679921 149,79 USD 189,77 USD 443,62 USD
+META - Meta Platforms 0,52834544 126,47 USD 84,80 USD 151,62 USD
+GOOGL - Alphabet Class A 1,241587918 89,88 USD 37,02 USD 148,62 USD
+AMZN - Amazon 1,552020362 93,13 USD 57,78 USD 202,32 USD
+AAPL - Apple 0,933999768 152,57 USD 38,66 USD 181,17 USD
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.30/06/23
+YATIRIM İŞLEMLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/06/23 30/06/23
+Ödeme Tarihi Sermaya Piyasası Aracı Brüt Temettü Tutarı Stopaj* Net Temettü Tutarı
+08/06/23 MSFT - Microsoft 0,12 USD 0,02 USD 0,10 USD
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.midasmenkul.com
+/1 1
+01/09/23 -  HESAP EKSTRESİ30/09/23
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : ŞEHİTEKREM MAH. ADA KARANFİLİ
+SK. NO: 29/4 BAŞİSKELE / KOCAELİ
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 1.71 USD
+Toplam Portföy Değeri : 10656.55 USD
+İşlem Hacmi : 0,00 USD
+PORTFÖY ÖZETİ ( )30/09/23
+Sermaya Piyasası Aracı Adet Hisse Başı Ortalama Maliyet Kar / Zarar* Toplam Değeri (YP)
+SNAP - Snap 4,975308641 10,53 USD -8,06 USD 44,33 USD
+RIVN - Rivian Automotive, I... 4,777235772 12,30 USD 57,23 USD 115,99 USD
+RBLX - Roblox Corporation 3,769360377 26,53 USD 9,16 USD 109,16 USD
+MRVL - Marvell 5,033001406 61,00 USD -34,56 USD 272,44 USD
+WBX - Wallbox N.V. 190,475441481 2,79 USD -103,43 USD 428,57 USD
+TSLA - Tesla 6,715087428 228,53 USD 145,65 USD 1680,25 USD
+PYPL - PayPal 7,617000828 63,05 USD -34,95 USD 445,29 USD
+MSFT - Microsoft 5,237550827 325,23 USD -49,64 USD 1653,76 USD
+META - Meta Platforms 2,858721185 271,92 USD 80,87 USD 858,22 USD
+LI - Li Auto Inc 12,337542799 40,28 USD -57,17 USD 439,83 USD
+GOOGL - Alphabet Class A 7,855701048 125,81 USD 39,64 USD 1028,00 USD
+AMZN - Amazon 8,842827188 128,49 USD -12,08 USD 1124,10 USD
+AMD - AMD 14,66087673 105,56 USD -40,10 USD 1507,43 USD
+AAPL - Apple 5,533999768 177,65 USD -35,66 USD 947,48 USD
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.30/09/23
+YATIRIM İŞLEMLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/09/23 30/09/23
+Ödeme Tarihi Sermaya Piyasası Aracı Brüt Temettü Tutarı Stopaj* Net Temettü Tutarı
+14/09/23 MSFT - Microsoft 2,01 USD 0,40 USD 1,61 USD
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.getmidas.com
+/1 1
+01/10/22 -  HESAP EKSTRESİ31/10/22
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : şehitekrem mah. adakaranfili sok. no:
+29/4 Başiskele / Kocaeli / Türkiye
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 0 USD
+Toplam Portföy Değeri : 0 USD
+PORTFÖY ÖZETİ ( )31/10/22
+Kayıt bulunmamaktadır.
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.31/10/22
+YATIRIM İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.midasmenkul.com
+/1 1
+01/09/23 -  HESAP EKSTRESİ30/09/23
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : ŞEHİTEKREM MAH. ADA KARANFİLİ
+SK. NO: 29/4 BAŞİSKELE / KOCAELİ
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 1.71 USD
+Toplam Portföy Değeri : 10656.55 USD
+İşlem Hacmi : 0,00 USD
+PORTFÖY ÖZETİ ( )30/09/23
+Sermaya Piyasası Aracı Adet Hisse Başı Ortalama Maliyet Kar / Zarar* Toplam Değeri (YP)
+SNAP - Snap 4,975308641 10,53 USD -8,06 USD 44,33 USD
+RIVN - Rivian Automotive, I... 4,777235772 12,30 USD 57,23 USD 115,99 USD
+RBLX - Roblox Corporation 3,769360377 26,53 USD 9,16 USD 109,16 USD
+MRVL - Marvell 5,033001406 61,00 USD -34,56 USD 272,44 USD
+WBX - Wallbox N.V. 190,475441481 2,79 USD -103,43 USD 428,57 USD
+TSLA - Tesla 6,715087428 228,53 USD 145,65 USD 1680,25 USD
+PYPL - PayPal 7,617000828 63,05 USD -34,95 USD 445,29 USD
+MSFT - Microsoft 5,237550827 325,23 USD -49,64 USD 1653,76 USD
+META - Meta Platforms 2,858721185 271,92 USD 80,87 USD 858,22 USD
+LI - Li Auto Inc 12,337542799 40,28 USD -57,17 USD 439,83 USD
+GOOGL - Alphabet Class A 7,855701048 125,81 USD 39,64 USD 1028,00 USD
+AMZN - Amazon 8,842827188 128,49 USD -12,08 USD 1124,10 USD
+AMD - AMD 14,66087673 105,56 USD -40,10 USD 1507,43 USD
+AAPL - Apple 5,533999768 177,65 USD -35,66 USD 947,48 USD
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.30/09/23
+YATIRIM İŞLEMLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/09/23 30/09/23
+Ödeme Tarihi Sermaya Piyasası Aracı Brüt Temettü Tutarı Stopaj* Net Temettü Tutarı
+14/09/23 MSFT - Microsoft 2,01 USD 0,40 USD 1,61 USD
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.midasmenkul.com
+/1 1
+01/06/23 -  HESAP EKSTRESİ30/06/23
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : şehitekrem mah. adakaranfili sok. no:
+29/4 Başiskele / Kocaeli / Türkiye
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 0.1 USD
+Toplam Portföy Değeri : 1342.01059975836 USD
+İşlem Hacmi : 0,00 USD
+PORTFÖY ÖZETİ ( )30/06/23
+Sermaya Piyasası Aracı Adet Hisse Başı Ortalama Maliyet Kar / Zarar* Toplam Değeri (YP)
+PYPL - PayPal 0,216030137 76,98 USD -2,21 USD 14,42 USD
+SNAP - Snap 4,975308641 10,53 USD 6,52 USD 58,91 USD
+MSFT - Microsoft 0,181738782 274,79 USD 11,95 USD 61,89 USD
+RIVN - Rivian Automotive, I... 4,777235772 12,30 USD 20,83 USD 79,59 USD
+TSLA - Tesla 1,694679921 149,79 USD 189,77 USD 443,62 USD
+META - Meta Platforms 0,52834544 126,47 USD 84,80 USD 151,62 USD
+GOOGL - Alphabet Class A 1,241587918 89,88 USD 37,02 USD 148,62 USD
+AMZN - Amazon 1,552020362 93,13 USD 57,78 USD 202,32 USD
+AAPL - Apple 0,933999768 152,57 USD 38,66 USD 181,17 USD
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.30/06/23
+YATIRIM İŞLEMLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/06/23 30/06/23
+Ödeme Tarihi Sermaya Piyasası Aracı Brüt Temettü Tutarı Stopaj* Net Temettü Tutarı
+08/06/23 MSFT - Microsoft 0,12 USD 0,02 USD 0,10 USD
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.getmidas.com
+/1 1
+01/10/22 -  HESAP EKSTRESİ31/10/22
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : şehitekrem mah. adakaranfili sok. no:
+29/4 Başiskele / Kocaeli / Türkiye
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 0 USD
+Toplam Portföy Değeri : 0 USD
+PORTFÖY ÖZETİ ( )31/10/22
+Kayıt bulunmamaktadır.
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.31/10/22
+YATIRIM İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.midasmenkul.com
+/1 1
+01/06/23 -  HESAP EKSTRESİ30/06/23
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : şehitekrem mah. adakaranfili sok. no:
+29/4 Başiskele / Kocaeli / Türkiye
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 0.1 USD
+Toplam Portföy Değeri : 1342.01059975836 USD
+İşlem Hacmi : 0,00 USD
+PORTFÖY ÖZETİ ( )30/06/23
+Sermaya Piyasası Aracı Adet Hisse Başı Ortalama Maliyet Kar / Zarar* Toplam Değeri (YP)
+PYPL - PayPal 0,216030137 76,98 USD -2,21 USD 14,42 USD
+SNAP - Snap 4,975308641 10,53 USD 6,52 USD 58,91 USD
+MSFT - Microsoft 0,181738782 274,79 USD 11,95 USD 61,89 USD
+RIVN - Rivian Automotive, I... 4,777235772 12,30 USD 20,83 USD 79,59 USD
+TSLA - Tesla 1,694679921 149,79 USD 189,77 USD 443,62 USD
+META - Meta Platforms 0,52834544 126,47 USD 84,80 USD 151,62 USD
+GOOGL - Alphabet Class A 1,241587918 89,88 USD 37,02 USD 148,62 USD
+AMZN - Amazon 1,552020362 93,13 USD 57,78 USD 202,32 USD
+AAPL - Apple 0,933999768 152,57 USD 38,66 USD 181,17 USD
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.30/06/23
+YATIRIM İŞLEMLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/06/23 30/06/23
+Ödeme Tarihi Sermaya Piyasası Aracı Brüt Temettü Tutarı Stopaj* Net Temettü Tutarı
+08/06/23 MSFT - Microsoft 0,12 USD 0,02 USD 0,10 USD
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.midasmenkul.com
+/1 1
+01/09/23 -  HESAP EKSTRESİ30/09/23
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : ŞEHİTEKREM MAH. ADA KARANFİLİ
+SK. NO: 29/4 BAŞİSKELE / KOCAELİ
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 1.71 USD
+Toplam Portföy Değeri : 10656.55 USD
+İşlem Hacmi : 0,00 USD
+PORTFÖY ÖZETİ ( )30/09/23
+Sermaya Piyasası Aracı Adet Hisse Başı Ortalama Maliyet Kar / Zarar* Toplam Değeri (YP)
+SNAP - Snap 4,975308641 10,53 USD -8,06 USD 44,33 USD
+RIVN - Rivian Automotive, I... 4,777235772 12,30 USD 57,23 USD 115,99 USD
+RBLX - Roblox Corporation 3,769360377 26,53 USD 9,16 USD 109,16 USD
+MRVL - Marvell 5,033001406 61,00 USD -34,56 USD 272,44 USD
+WBX - Wallbox N.V. 190,475441481 2,79 USD -103,43 USD 428,57 USD
+TSLA - Tesla 6,715087428 228,53 USD 145,65 USD 1680,25 USD
+PYPL - PayPal 7,617000828 63,05 USD -34,95 USD 445,29 USD
+MSFT - Microsoft 5,237550827 325,23 USD -49,64 USD 1653,76 USD
+META - Meta Platforms 2,858721185 271,92 USD 80,87 USD 858,22 USD
+LI - Li Auto Inc 12,337542799 40,28 USD -57,17 USD 439,83 USD
+GOOGL - Alphabet Class A 7,855701048 125,81 USD 39,64 USD 1028,00 USD
+AMZN - Amazon 8,842827188 128,49 USD -12,08 USD 1124,10 USD
+AMD - AMD 14,66087673 105,56 USD -40,10 USD 1507,43 USD
+AAPL - Apple 5,533999768 177,65 USD -35,66 USD 947,48 USD
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.30/09/23
+YATIRIM İŞLEMLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/09/23 30/09/23
+Ödeme Tarihi Sermaya Piyasası Aracı Brüt Temettü Tutarı Stopaj* Net Temettü Tutarı
+14/09/23 MSFT - Microsoft 2,01 USD 0,40 USD 1,61 USD
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.getmidas.com
+/1 1
+01/10/22 -  HESAP EKSTRESİ31/10/22
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : şehitekrem mah. adakaranfili sok. no:
+29/4 Başiskele / Kocaeli / Türkiye
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 0 USD
+Toplam Portföy Değeri : 0 USD
+PORTFÖY ÖZETİ ( )31/10/22
+Kayıt bulunmamaktadır.
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.31/10/22
+YATIRIM İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.midasmenkul.com
+/1 1
+01/09/23 -  HESAP EKSTRESİ30/09/23
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : ŞEHİTEKREM MAH. ADA KARANFİLİ
+SK. NO: 29/4 BAŞİSKELE / KOCAELİ
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 1.71 USD
+Toplam Portföy Değeri : 10656.55 USD
+İşlem Hacmi : 0,00 USD
+PORTFÖY ÖZETİ ( )30/09/23
+Sermaya Piyasası Aracı Adet Hisse Başı Ortalama Maliyet Kar / Zarar* Toplam Değeri (YP)
+SNAP - Snap 4,975308641 10,53 USD -8,06 USD 44,33 USD
+RIVN - Rivian Automotive, I... 4,777235772 12,30 USD 57,23 USD 115,99 USD
+RBLX - Roblox Corporation 3,769360377 26,53 USD 9,16 USD 109,16 USD
+MRVL - Marvell 5,033001406 61,00 USD -34,56 USD 272,44 USD
+WBX - Wallbox N.V. 190,475441481 2,79 USD -103,43 USD 428,57 USD
+TSLA - Tesla 6,715087428 228,53 USD 145,65 USD 1680,25 USD
+PYPL - PayPal 7,617000828 63,05 USD -34,95 USD 445,29 USD
+MSFT - Microsoft 5,237550827 325,23 USD -49,64 USD 1653,76 USD
+META - Meta Platforms 2,858721185 271,92 USD 80,87 USD 858,22 USD
+LI - Li Auto Inc 12,337542799 40,28 USD -57,17 USD 439,83 USD
+GOOGL - Alphabet Class A 7,855701048 125,81 USD 39,64 USD 1028,00 USD
+AMZN - Amazon 8,842827188 128,49 USD -12,08 USD 1124,10 USD
+AMD - AMD 14,66087673 105,56 USD -40,10 USD 1507,43 USD
+AAPL - Apple 5,533999768 177,65 USD -35,66 USD 947,48 USD
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.30/09/23
+YATIRIM İŞLEMLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/09/23 30/09/23
+Ödeme Tarihi Sermaya Piyasası Aracı Brüt Temettü Tutarı Stopaj* Net Temettü Tutarı
+14/09/23 MSFT - Microsoft 2,01 USD 0,40 USD 1,61 USD
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.midasmenkul.com
+/1 1
+01/06/23 -  HESAP EKSTRESİ30/06/23
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : şehitekrem mah. adakaranfili sok. no:
+29/4 Başiskele / Kocaeli / Türkiye
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 0.1 USD
+Toplam Portföy Değeri : 1342.01059975836 USD
+İşlem Hacmi : 0,00 USD
+PORTFÖY ÖZETİ ( )30/06/23
+Sermaya Piyasası Aracı Adet Hisse Başı Ortalama Maliyet Kar / Zarar* Toplam Değeri (YP)
+PYPL - PayPal 0,216030137 76,98 USD -2,21 USD 14,42 USD
+SNAP - Snap 4,975308641 10,53 USD 6,52 USD 58,91 USD
+MSFT - Microsoft 0,181738782 274,79 USD 11,95 USD 61,89 USD
+RIVN - Rivian Automotive, I... 4,777235772 12,30 USD 20,83 USD 79,59 USD
+TSLA - Tesla 1,694679921 149,79 USD 189,77 USD 443,62 USD
+META - Meta Platforms 0,52834544 126,47 USD 84,80 USD 151,62 USD
+GOOGL - Alphabet Class A 1,241587918 89,88 USD 37,02 USD 148,62 USD
+AMZN - Amazon 1,552020362 93,13 USD 57,78 USD 202,32 USD
+AAPL - Apple 0,933999768 152,57 USD 38,66 USD 181,17 USD
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.30/06/23
+YATIRIM İŞLEMLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/06/23 30/06/23
+Ödeme Tarihi Sermaya Piyasası Aracı Brüt Temettü Tutarı Stopaj* Net Temettü Tutarı
+08/06/23 MSFT - Microsoft 0,12 USD 0,02 USD 0,10 USD
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.getmidas.com
+/1 1
+01/10/22 -  HESAP EKSTRESİ31/10/22
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : şehitekrem mah. adakaranfili sok. no:
+29/4 Başiskele / Kocaeli / Türkiye
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 0 USD
+Toplam Portföy Değeri : 0 USD
+PORTFÖY ÖZETİ ( )31/10/22
+Kayıt bulunmamaktadır.
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.31/10/22
+YATIRIM İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.midasmenkul.com
+/1 1
+01/06/23 -  HESAP EKSTRESİ30/06/23
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : şehitekrem mah. adakaranfili sok. no:
+29/4 Başiskele / Kocaeli / Türkiye
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 0.1 USD
+Toplam Portföy Değeri : 1342.01059975836 USD
+İşlem Hacmi : 0,00 USD
+PORTFÖY ÖZETİ ( )30/06/23
+Sermaya Piyasası Aracı Adet Hisse Başı Ortalama Maliyet Kar / Zarar* Toplam Değeri (YP)
+PYPL - PayPal 0,216030137 76,98 USD -2,21 USD 14,42 USD
+SNAP - Snap 4,975308641 10,53 USD 6,52 USD 58,91 USD
+MSFT - Microsoft 0,181738782 274,79 USD 11,95 USD 61,89 USD
+RIVN - Rivian Automotive, I... 4,777235772 12,30 USD 20,83 USD 79,59 USD
+TSLA - Tesla 1,694679921 149,79 USD 189,77 USD 443,62 USD
+META - Meta Platforms 0,52834544 126,47 USD 84,80 USD 151,62 USD
+GOOGL - Alphabet Class A 1,241587918 89,88 USD 37,02 USD 148,62 USD
+AMZN - Amazon 1,552020362 93,13 USD 57,78 USD 202,32 USD
+AAPL - Apple 0,933999768 152,57 USD 38,66 USD 181,17 USD
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.30/06/23
+YATIRIM İŞLEMLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/06/23 30/06/23
+Ödeme Tarihi Sermaya Piyasası Aracı Brüt Temettü Tutarı Stopaj* Net Temettü Tutarı
+08/06/23 MSFT - Microsoft 0,12 USD 0,02 USD 0,10 USD
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.midasmenkul.com
+/1 1
+01/09/23 -  HESAP EKSTRESİ30/09/23
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : ŞEHİTEKREM MAH. ADA KARANFİLİ
+SK. NO: 29/4 BAŞİSKELE / KOCAELİ
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 1.71 USD
+Toplam Portföy Değeri : 10656.55 USD
+İşlem Hacmi : 0,00 USD
+PORTFÖY ÖZETİ ( )30/09/23
+Sermaya Piyasası Aracı Adet Hisse Başı Ortalama Maliyet Kar / Zarar* Toplam Değeri (YP)
+SNAP - Snap 4,975308641 10,53 USD -8,06 USD 44,33 USD
+RIVN - Rivian Automotive, I... 4,777235772 12,30 USD 57,23 USD 115,99 USD
+RBLX - Roblox Corporation 3,769360377 26,53 USD 9,16 USD 109,16 USD
+MRVL - Marvell 5,033001406 61,00 USD -34,56 USD 272,44 USD
+WBX - Wallbox N.V. 190,475441481 2,79 USD -103,43 USD 428,57 USD
+TSLA - Tesla 6,715087428 228,53 USD 145,65 USD 1680,25 USD
+PYPL - PayPal 7,617000828 63,05 USD -34,95 USD 445,29 USD
+MSFT - Microsoft 5,237550827 325,23 USD -49,64 USD 1653,76 USD
+META - Meta Platforms 2,858721185 271,92 USD 80,87 USD 858,22 USD
+LI - Li Auto Inc 12,337542799 40,28 USD -57,17 USD 439,83 USD
+GOOGL - Alphabet Class A 7,855701048 125,81 USD 39,64 USD 1028,00 USD
+AMZN - Amazon 8,842827188 128,49 USD -12,08 USD 1124,10 USD
+AMD - AMD 14,66087673 105,56 USD -40,10 USD 1507,43 USD
+AAPL - Apple 5,533999768 177,65 USD -35,66 USD 947,48 USD
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.30/09/23
+YATIRIM İŞLEMLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/09/23 30/09/23
+Ödeme Tarihi Sermaya Piyasası Aracı Brüt Temettü Tutarı Stopaj* Net Temettü Tutarı
+14/09/23 MSFT - Microsoft 2,01 USD 0,40 USD 1,61 USD
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.getmidas.com
+/1 1
+01/10/22 -  HESAP EKSTRESİ31/10/22
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : şehitekrem mah. adakaranfili sok. no:
+29/4 Başiskele / Kocaeli / Türkiye
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 0 USD
+Toplam Portföy Değeri : 0 USD
+PORTFÖY ÖZETİ ( )31/10/22
+Kayıt bulunmamaktadır.
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.31/10/22
+YATIRIM İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/10/22 31/10/22
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.midasmenkul.com
+/1 1
+01/06/23 -  HESAP EKSTRESİ30/06/23
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : şehitekrem mah. adakaranfili sok. no:
+29/4 Başiskele / Kocaeli / Türkiye
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 0.1 USD
+Toplam Portföy Değeri : 1342.01059975836 USD
+İşlem Hacmi : 0,00 USD
+PORTFÖY ÖZETİ ( )30/06/23
+Sermaya Piyasası Aracı Adet Hisse Başı Ortalama Maliyet Kar / Zarar* Toplam Değeri (YP)
+PYPL - PayPal 0,216030137 76,98 USD -2,21 USD 14,42 USD
+SNAP - Snap 4,975308641 10,53 USD 6,52 USD 58,91 USD
+MSFT - Microsoft 0,181738782 274,79 USD 11,95 USD 61,89 USD
+RIVN - Rivian Automotive, I... 4,777235772 12,30 USD 20,83 USD 79,59 USD
+TSLA - Tesla 1,694679921 149,79 USD 189,77 USD 443,62 USD
+META - Meta Platforms 0,52834544 126,47 USD 84,80 USD 151,62 USD
+GOOGL - Alphabet Class A 1,241587918 89,88 USD 37,02 USD 148,62 USD
+AMZN - Amazon 1,552020362 93,13 USD 57,78 USD 202,32 USD
+AAPL - Apple 0,933999768 152,57 USD 38,66 USD 181,17 USD
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.30/06/23
+YATIRIM İŞLEMLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/06/23 30/06/23
+Ödeme Tarihi Sermaya Piyasası Aracı Brüt Temettü Tutarı Stopaj* Net Temettü Tutarı
+08/06/23 MSFT - Microsoft 0,12 USD 0,02 USD 0,10 USD
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/06/23 30/06/23
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdfMidas Menkul Değerler A.Ş.
+Mersis Numarası: 0621096943000001
+Ticari Sicil Numarası: 273919-5
+Adres: Altunizade Mah. Bestekar Saadettin Kaynak Sok. 3-B D:2 - 34662 Üsküdar/İstanbul
+www.midasmenkul.com
+/1 1
+01/09/23 -  HESAP EKSTRESİ30/09/23
+Müşteri Adı Soyadı : MUHARREM EMRE ÖZKUL
+TCKN : 25004267860
+Adres : ŞEHİTEKREM MAH. ADA KARANFİLİ
+SK. NO: 29/4 BAŞİSKELE / KOCAELİ
+Hesap Açılış Tarihi : 08/08/22
+Nakit Bakiye : 1.71 USD
+Toplam Portföy Değeri : 10656.55 USD
+İşlem Hacmi : 0,00 USD
+PORTFÖY ÖZETİ ( )30/09/23
+Sermaya Piyasası Aracı Adet Hisse Başı Ortalama Maliyet Kar / Zarar* Toplam Değeri (YP)
+SNAP - Snap 4,975308641 10,53 USD -8,06 USD 44,33 USD
+RIVN - Rivian Automotive, I... 4,777235772 12,30 USD 57,23 USD 115,99 USD
+RBLX - Roblox Corporation 3,769360377 26,53 USD 9,16 USD 109,16 USD
+MRVL - Marvell 5,033001406 61,00 USD -34,56 USD 272,44 USD
+WBX - Wallbox N.V. 190,475441481 2,79 USD -103,43 USD 428,57 USD
+TSLA - Tesla 6,715087428 228,53 USD 145,65 USD 1680,25 USD
+PYPL - PayPal 7,617000828 63,05 USD -34,95 USD 445,29 USD
+MSFT - Microsoft 5,237550827 325,23 USD -49,64 USD 1653,76 USD
+META - Meta Platforms 2,858721185 271,92 USD 80,87 USD 858,22 USD
+LI - Li Auto Inc 12,337542799 40,28 USD -57,17 USD 439,83 USD
+GOOGL - Alphabet Class A 7,855701048 125,81 USD 39,64 USD 1028,00 USD
+AMZN - Amazon 8,842827188 128,49 USD -12,08 USD 1124,10 USD
+AMD - AMD 14,66087673 105,56 USD -40,10 USD 1507,43 USD
+AAPL - Apple 5,533999768 177,65 USD -35,66 USD 947,48 USD
+*Kar zarar  gün sonu piyasa kapanış fiyatı ile hesaplanmıştır.30/09/23
+YATIRIM İŞLEMLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+HESAP İŞLEMLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+TEMETTÜ İŞLEMLERİ (  - )01/09/23 30/09/23
+Ödeme Tarihi Sermaya Piyasası Aracı Brüt Temettü Tutarı Stopaj* Net Temettü Tutarı
+14/09/23 MSFT - Microsoft 2,01 USD 0,40 USD 1,61 USD
+*Stopaj, Amerika Gelir İdaresi (IRS)’ne adınıza ödenen gelir vergisini temsil etmektedir.
+HİSSE TRANSFERLERİ (  - )01/09/23 30/09/23
+Kayıt bulunmamaktadır.
+* Şirketimiz nezdinde açılan hesabınızda bulunan güncel hisse senetleri ve bakiye bilginizi, kullanıcı adı ve şifreniz ile  uygulamasına giriş yaparak izleyebilirsiniz.Midas
+* Şirketimiz hesaplarınızla ilgili olarak tarafınıza teslim edilen şifrelerinizi  çalışanları dahil kimseyle paylaşmayınız.Midas
+* Ekstrenizde mutabık olmadığınız hususları  adresi üzerinden bize iletebilirsiniz.destek@getmidas.com
+*  piyasasında tüm emirler için emri alan kuruluş , ilgili borsaya ileten kuruluş ise 'dir.ABD Midas Menkul Değerler A.Ş. Alpaca Securities LLC
+!!! transaction lines are not found in this pdf

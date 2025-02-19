@@ -23,7 +23,7 @@ admin.site.register(CalculatorPDF, CalculatorPDFAdmin)
 class TransactionAdmin(admin.ModelAdmin):
     list_display = ('pdf', 'date', 'symbol', 'transaction_type', 'price', 'quantity')
     list_filter = ('pdf__calculator__id',)
-    search_fields = ('pdf__calculator__id', 'pdf__calculator__name')
+    search_fields = ('pdf__calculator__id', 'pdf__calculator__name', 'date', 'symbol', 'transaction_type', 'price', 'quantity')
     list_per_page = 25
     ordering = ('-pdf__calculator__id',)
 

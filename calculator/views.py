@@ -8,7 +8,7 @@ from django.http import JsonResponse, HttpResponseBadRequest
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import Calculator, CalculatorPDF, Transaction, Portfolio
-from .midas import Midas
+from .midas import Midas, Stock
 
 
 
@@ -148,3 +148,41 @@ def test_transactions(request):
         
 
         return render(request, 'vergihesapla/test_transactions.html', {'transactions': transactions})
+    
+def test_calculation(request, calculator_id):
+
+    if request.method == 'GET': # change this to post
+        #data = json.loads(request.body)
+        #calculator_id = data.get('calculator_id')
+        print("calculator_id: ", calculator_id)
+
+        # Get the calculator instance
+        calculator = Calculator.objects.get(id=calculator_id)
+        
+        # Get all PDFs associated with this calculator
+        pdfs = CalculatorPDF.objects.filter(calculator=calculator).order_by('portfolio_date')
+
+        sorted_transactions = Transaction.objects.filter(pdf__in=pdfs).order_by('date')
+
+        symbols = list(set(sorted_transactions.values_list("symbol", flat=True)))
+
+        calculated_stocks = []
+
+        for symbol in symbols:
+            print("symbol: ", symbol)
+            stock = Stock(symbol)
+
+            for transaction in sorted_transactions: 
+                if transaction.symbol == symbol:
+                    if transaction.transaction_type == "Alış":
+                        stock.add_transaction(transaction)
+                    elif transaction.transaction_type == "Satış":
+                        stock.calculate_sell_transaction(transaction)
+                    else:
+                        print("transaction type is not valid: ", transaction.transaction_type)
+                        stock.invalid_transactions.append(transaction)
+            print("in views, calculation is finished for stock: ", stock.symbol, "with profit: ", stock.profit)
+            calculated_stocks.append(stock)
+
+        return render(request, 'vergihesapla/test_calculation.html', {'transactions': calculated_stocks})
+    return HttpResponseBadRequest("Invalid request method")

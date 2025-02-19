@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    {% csrf_token %}
     <header>
         <div class="logo">
             <div class="logo-symbol"></div>
@@ -51,6 +52,8 @@ Bu hesaplama aracı sadece referans amaçlı olup muhasebe hizmeti niteliği ta�
             </div>
 
             <div class="upload-section">
+                <div id="validation-message" class="validation-message" style="display: none;"></div>
+                
                 <div class="upload-area" id="dropZone">
                     <input type="file" id="fileInput" multiple accept=".pdf" class="file-input" />
                     <i class="fas fa-cloud-upload-alt"></i>

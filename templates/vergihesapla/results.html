@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vergi Hesaplama Sonuçları</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'vergihesapla/styles/index.css' %}">
+    <link rel="stylesheet" href="{% static 'vergihesapla/styles/results.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-symbol"></div>
+            <a href="{% url 'index' %}">Vergi <span>Hesapla</span></a>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="{% url 'index' %}#features">Özellikler</a></li>
+                <li><a href="{% url 'index' %}#pricing">Fiyatlandırma</a></li>
+                <li><a href="{% url 'index' %}#contact">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="results-container">
+        <section class="results-summary">
+            <h1>Vergi Hesaplama Sonuçları</h1>
+            <div class="results-cards">
+                <div class="result-card">
+                    <h3>Toplam Kar/Zarar</h3>
+                    <p class="amount">{{ total_profit_loss }} ₺</p>
+                </div>
+                <div class="result-card">
+                    <h3>Ödenecek Vergi</h3>
+                    <p class="amount">{{ tax_amount }} ₺</p>
+                </div>
+                <div class="result-card">
+                    <h3>İşlem Sayısı</h3>
+                    <p class="amount">{{ transaction_count }}</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="detailed-results">
+            <h2>Detaylı İşlem Dökümü</h2>
+            <div class="transactions-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hisse</th>
+                            <th>Kar/Zarar</th>
+                            <th>Kar/Zarar (USD)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for transaction in transactions %}
+                        <tr>
+                            <td>{{ transaction.symbol }}</td>
+                            <td class="number">{{ transaction.total }}₺</td>
+                            <td class="number">{{ transaction.total_usd }}USD</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="actions">
+            <button class="download-pdf">
+                <i class="fas fa-download"></i>
+                PDF İndir
+            </button>
+            <button class="new-calculation" onclick="window.location.href='/calculator/'">
+                <i class="fas fa-calculator"></i>
+                Yeni Hesaplama
+            </button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-bottom">
+                <p>&copy; 2024 ABD Vergi. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Calculator, CalculatorPDF, Transaction
+from .models import Calculator, CalculatorPDF, Transaction, Portfolio
 # Register your models here.
 
 class CalculatorAdmin(admin.ModelAdmin):
@@ -28,3 +28,12 @@ class TransactionAdmin(admin.ModelAdmin):
     ordering = ('-pdf__calculator__id',)
 
 admin.site.register(Transaction, TransactionAdmin)
+
+class PortfolioAdmin(admin.ModelAdmin):
+    list_display = ('pdf', 'date', 'symbol', 'quantity', 'buy_price', 'profit')
+    list_filter = ('pdf__calculator__id',)
+    search_fields = ('pdf__calculator__id', 'pdf__calculator__name')
+    list_per_page = 50
+    ordering = ('-pdf__calculator__id',)
+
+admin.site.register(Portfolio, PortfolioAdmin)

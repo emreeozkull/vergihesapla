@@ -1,0 +1,58 @@
+
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Test Transactions</h2>
+    
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">Transaction List</h5>
+        </div>
+        <div class="card-body">
+            {% if transactions %}
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Symbol</th>
+                                <th>Transaction Type</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Transaction Fee</th>
+                                <th>Total Amount</th>
+                                <th>Transaction Status</th>
+                                <th>Transaction Currency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for transaction in transactions %}
+                            <tr>
+                                <td>{{ transaction.date }}</td>
+                                <td>{{ transaction.symbol }}</td>
+                                <td>{{ transaction.transaction_type }}</td>
+                                <td>{{ transaction.price }}</td>
+                                <td>{{ transaction.quantity }}</td>
+                                <td>{{ transaction.transaction_fee }}</td>
+                                <td>{{ transaction.total_amount }}</td>
+                                <td>{{ transaction.transaction_status }}</td>
+                                <td>{{ transaction.transaction_currency }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="alert alert-info">
+                    No transactions found.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a href="{% url 'index' %}" class="btn btn-primary">Back to Calculator</a>
+    </div>
+</div>
+{% endblock %}

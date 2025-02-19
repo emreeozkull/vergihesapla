@@ -41,22 +41,24 @@ class CalculatorPDF(models.Model):
     tckn = models.PositiveBigIntegerField(null=True, blank=True)
     account_opening_date = models.DateTimeField(null=True, blank=True)
 
-    #portfolio = models.JSONField(null=True, blank=True) #every quantity is string 
     portfolio_date = models.DateTimeField(null=True, blank=True)
     
 
     def __str__(self):
         return self.calculator.name
-
+    
+    def get_portfolio(self):
+        return Portfolio.objects.filter(pdf=self)
+    
 class Transaction(models.Model):
     pdf = models.ForeignKey(CalculatorPDF, on_delete=models.CASCADE)
     date = models.DateTimeField()
     symbol = models.CharField(max_length=200)
     transaction_type = models.CharField(max_length=200)
-    price = models.DecimalField(max_digits=22, decimal_places=10)    
-    quantity = models.DecimalField(max_digits=22, decimal_places=10)
-    transaction_fee = models.DecimalField(max_digits=22, decimal_places=10)
-    total_amount = models.DecimalField(max_digits=22, decimal_places=10)
+    price = models.DecimalField(max_digits=28, decimal_places=14)    
+    quantity = models.DecimalField(max_digits=28, decimal_places=14)
+    transaction_fee = models.DecimalField(max_digits=28, decimal_places=14)
+    total_amount = models.DecimalField(max_digits=28, decimal_places=10)
     transaction_status = models.CharField(max_length=200)
     transaction_currency = models.CharField(max_length=200)
 
@@ -65,3 +67,15 @@ class Transaction(models.Model):
 
     class Meta:
         ordering = ['-date']
+
+class Portfolio(models.Model):
+    pdf = models.ForeignKey(CalculatorPDF, on_delete=models.CASCADE)
+    date = models.DateTimeField()
+    symbol = models.CharField(max_length=200)
+    quantity = models.DecimalField(max_digits=28, decimal_places=14)
+    buy_price = models.DecimalField(max_digits=28, decimal_places=14)
+    profit = models.DecimalField(max_digits=28, decimal_places=14)
+    
+
+    def __str__(self):
+        return f"{self.date} - {self.symbol} - {self.quantity}"

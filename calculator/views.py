@@ -156,6 +156,9 @@ def test_calculation(request, calculator_id):
         #calculator_id = data.get('calculator_id')
         print("calculator_id: ", calculator_id)
 
+        cleanup_duplicates(calculator_id)
+
+
         # Get the calculator instance
         calculator = Calculator.objects.get(id=calculator_id)
         
@@ -184,5 +187,48 @@ def test_calculation(request, calculator_id):
             print("in views, calculation is finished for stock: ", stock.symbol, "with profit: ", stock.profit)
             calculated_stocks.append(stock)
 
-        return render(request, 'vergihesapla/test_calculation.html', {'transactions': calculated_stocks})
+
+        show_transactions = []
+        context = {
+            'profit': 0,
+            'transactions': [],
+            'profits': [],
+            'symbols': [],
+            'symbol_profits': []
+        }
+
+        for stock in calculated_stocks:
+            context['transactions'].extend(stock.calculated_sell_transactions)
+            context['profit'] += stock.profit
+            context['profits'].append(stock.profits_sell_transactions)
+            
+            context['symbol_profits'].append((stock.symbol, stock.profit))
+        return render(request, 'vergihesapla/test_calculation.html', context)
     return HttpResponseBadRequest("Invalid request method")
+
+def cleanup_duplicates(calculator_id):
+    from django.db import models
+    
+    calculator = Calculator.objects.get(id=calculator_id)
+    pdfs = CalculatorPDF.objects.filter(calculator=calculator)
+    
+    # Find duplicates
+    duplicates = (Transaction.objects.filter(pdf__in=pdfs)
+                 .values('date', 'symbol', 'transaction_type', 'price', 'quantity')
+                 .annotate(count=models.Count('id'))
+                 .filter(count__gt=1))
+    
+    # For each set of duplicates, keep only the first one
+    for dup in duplicates:
+        transactions = Transaction.objects.filter(
+            pdf__in=pdfs,
+            date=dup['date'],
+            symbol=dup['symbol'],
+            transaction_type=dup['transaction_type'],
+            price=dup['price'],
+            quantity=dup['quantity']
+        ).order_by('id')
+        
+        # Keep the first one, delete the rest
+        first_transaction = transactions.first()
+        transactions.exclude(id=first_transaction.id).delete()

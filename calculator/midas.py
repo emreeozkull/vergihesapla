@@ -192,10 +192,8 @@ class Midas:
     def extract_transactions(self):
         transactions = []
         print(f"\nProcessing file: {self.path}")
-
         
         transactions_section = []
-        
         transaction_bool = False
 
         for line in self.lines:
@@ -208,54 +206,50 @@ class Midas:
             if transaction_bool and "Tarih" not in line and "Gerçekleşti" in line:
                 transactions_section.append(line)
 
-        
         if len(transactions_section) > 0:
-            
             line_count = len(transactions_section)
-
             print(f"Found transactions section with {line_count} lines")
             
+            # Create a set to track unique transaction signatures
+            seen_transactions = set()
+            
             for line in transactions_section:
-                # Skip empty lines, headers, and address lines
                 if (line.strip() and 
                     not line.startswith('Tarih') and 
                     not line.startswith('Kayıt') and 
                     not line.startswith('Adres:') and
-                    len(line.split()) >= 10):  # Basic validation for transaction lines
+                    len(line.split()) >= 10):
                     
                     transaction = self.parse_transaction_line(line)
-                    if transaction is not None and transaction in transactions:
-                        print(f"Transaction {transaction} already exists")
-                        with open("duplicate_transactions.txt", "a") as f : 
-                            f.write(line + "\n")
-                            f.write(f"{transaction} !!! transaction is already in the list: ")
-                            for t in transactions:
-                                f.write(f"{t}\n")
-                        raise ValueError(f"Transaction {transaction} already exists")
-                    if transaction is not None and transaction not in transactions:
-                        transactions.append(transaction)
+                    if transaction is not None:
+                        # Create a unique signature for the transaction
+                        transaction_signature = (
+                            transaction.date,
+                            transaction.symbol,
+                            transaction.transaction_type,
+                            transaction.price,
+                            transaction.quantity
+                        )
+                        
+                        # Only add if we haven't seen this exact transaction before
+                        if transaction_signature not in seen_transactions:
+                            seen_transactions.add(transaction_signature)
+                            transactions.append(transaction)
+                        else:
+                            print(f"Skipping duplicate transaction: {transaction}")
+                            # Optionally delete the duplicate transaction from database
+                            transaction.delete()
+
         else:
             print("!!! transaction lines are not found in this pdf")
-            with open("error_transaction.txt", "a") as f : 
+            with open("error_transaction.txt", "a") as f:
                 for line in self.lines:
                     f.write(line + "\n")
                 f.write("!!! transaction lines are not found in this pdf")
 
         if transactions:
-
-            distinct_transactions = Transaction.objects.filter(pdf_id = self.pdf_object.id).distinct()
-            if len(distinct_transactions) != len(transactions):
-                print(f"WARNING: {len(transactions) - len(distinct_transactions)} transactions were filtered out")
-                with open("duplicate_transactions.txt", "a") as f : 
-                    f.write(f"WARNING: {len(transactions) - len(distinct_transactions)} transactions were filtered out")
-                    for t in distinct_transactions:
-                        f.write(f"{t}\n")
-            
-            sorted_transactions = Transaction.objects.filter(pdf_id = self.pdf_object.id).order_by('date')
-
+            sorted_transactions = Transaction.objects.filter(pdf_id=self.pdf_object.id).order_by('date')
             print(f"Returning sorted transactions with length: {len(sorted_transactions)}")
-            if len(sorted_transactions) != len(transactions):
-                print(f"WARNING: {len(transactions) - len(sorted_transactions)} transactions were filtered out")
             
             with open("transactions.txt", "a") as f:
                 f.write(f" portfolio date: {self.portfolio_date}\n")

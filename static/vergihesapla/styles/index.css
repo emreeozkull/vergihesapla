@@ -1,28 +1,8 @@
-/* Reset and base styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@layer global;
 
-/* Base styles and colors */
-:root {
-    --primary: #0F172A;        /* Darker blue for more authority */
-    --primary-dark: #0B1222;
-    --primary-light: #1E293B;
-    --primary-lighter: #334155;
-    --text-primary: #0F172A;   /* Matching dark blue for text */
-    --text-secondary: #334155;
-    --text-tertiary: #64748B;
-    --bg-light: #f8fafc;
-    --bg-white: #ffffff;
-    --shadow-color: rgba(37, 99, 235, 0.15);
-}
+@import url('./global.css') layer(global);
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     line-height: 1.6;
     color: var(--text-primary);
     background-color: #ffffff;
@@ -40,13 +20,13 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 72px;
-    border-bottom: 1px solid rgba(37, 99, 235, 0.08);
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 1rem;
+    text-wrap: nowrap;
 }
 
 .logo-symbol {
@@ -69,7 +49,6 @@ header {
     color: white;
     font-size: 0.9rem;
     font-weight: 800;
-    font-family: 'Inter', sans-serif;
     letter-spacing: -0.05em;
 }
 
@@ -80,7 +59,6 @@ header {
     text-decoration: none;
     letter-spacing: -0.03em;   /* Tighter letter spacing */
     text-transform: uppercase; /* Optional: makes it more authoritative */
-    font-family: 'Inter', sans-serif;
 }
 
 /* Add a subtle color accent to "Vergi" */
@@ -208,11 +186,6 @@ header {
 
     .pricing-card .cta-button {
         padding: 0.75rem 2rem;
-    }
-
-    .logo-symbol {
-        width: 28px;
-        height: 28px;
     }
     
     .logo-symbol::before {
@@ -392,7 +365,7 @@ header {
 
 /* Pricing section */
 .pricing {
-    padding: 8rem 8% 6rem;
+    padding: 6rem 8% 6rem;
     background: linear-gradient(to bottom, var(--bg-white), var(--bg-light));
     text-align: center;
 }
@@ -757,11 +730,6 @@ footer::before {
         height: 64px;
         padding: 0 5%;
     }
-
-    .logo-symbol {
-        width: 28px;
-        height: 28px;
-    }
     
     .logo-symbol::before {
         font-size: 1rem;
@@ -820,11 +788,6 @@ footer::before {
     .pricing-card .price {
         font-size: 3rem;
     }
-}
-
-/* Add smooth scrolling */
-html {
-    scroll-behavior: smooth;
 }
 
 /* Selection colors for dark header */
@@ -886,7 +849,8 @@ header ::selection {
 /* Warning banner styles */
 .warning-banner {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 2rem 1rem;
+    width: calc(100% - 2rem);
     background: rgba(234, 179, 8, 0.1);
     border: 1px solid rgba(234, 179, 8, 0.2);
     border-radius: 12px;
@@ -894,6 +858,12 @@ header ::selection {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
+}
+
+@media (min-width: 1232px) {
+    .warning-banner {
+        margin: 2rem auto;
+    }
 }
 
 .warning-banner i {
@@ -993,11 +963,67 @@ header ::selection {
 }
 
 .logo-symbol {
-    /* ... existing styles ... */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.logo:hover .logo-symbol {
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+/* Mobile menu button styles */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--bg-light);
+}
+
+.mobile-menu-btn i {
+    font-size: 1.5rem;
+}
+
+/* Update responsive styles */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        padding: 1rem 0;
+        display: none;
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin: 0;
+        padding: 1rem 5%;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a:not(.cta-button) {
+        display: block;
+        padding: 0.75rem 0;
+        font-size: 1rem;
+    }
+
+    .nav-links .cta-button {
+        width: 100%;
+        text-align: center;
+    }
 }
 

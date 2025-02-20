@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vergi Hesaplama</title>
+    <title>Vergi Hesapla</title>
     {% load static %}
-
-    <meta name="description" content="ABD Vergi kullanarak kolayca ABD borsasındaki vergilerinizi hesaplayabilirsiniz.">
+    
+    <meta name="description" content="ABD borsalarından (NYSE, NASDAQ) elde ettiğiniz yatırım gelirlerinin vergisini kolayca hesaplayın. Midas hesap ekstrelerinizi yükleyin, 2024 yılındaki kazancınızı ve vergilerinizi saniyeler içinde öğrenin.">
+    <link rel="icon" href="{% static 'vergihesapla/images/favicon.svg' %}">
     <link rel="stylesheet" href="{% static 'vergihesapla/styles/index.css' %}">
+    
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -18,6 +19,9 @@
             <div class="logo-symbol"></div>
             <a href="{% url 'index' %}">Vergi <span>Hesapla</span></a>
         </div>
+        <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
         <nav class="navbar">
             <ul class="nav-links">
                 <li><a href="#features">Özellikler</a></li>
@@ -46,17 +50,17 @@
                 <div class="feature-card">
                     <i class="fas fa-file-pdf"></i>
                     <h3>PDF Ekstresi Yükleme</h3>
-                    <p>Midas hesap ekstrenizi kolayca yükleyin</p>
+                    <p>Midas hesap ekstrelerinizi kolayca yükleyin</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-calculator"></i>
-                    <h3>Otomatik Hesaplama</h3>
-                    <p>Vergi tutarınız otomatik olarak hesaplanır</p>
+                    <h3>Hızlı Hesaplama</h3>
+                    <p>2024 yılında ABD borsalarından elde ettiğiniz yatırım gelirleri saniyeler içerisinde hesaplanır</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-download"></i>
                     <h3>Rapor İndirme</h3>
-                    <p>Detaylı vergi raporunuzu PDF olarak indirin</p>
+                    <p>Yıl içerisindeki işlemleriniz ve kazancınızla ilgili detaylı raporunuzu PDF olarak indirin</p>
                 </div>
             </div>
         </section>
@@ -95,12 +99,12 @@
     <footer id="contact">
         <div class="footer-content">
             <div class="footer-section">
-                <h4>ABD Vergi</h4>
-                <p>ABD borsasında işlem yapan yatırımcılar için otomatik vergi hesaplama çözümü.</p>
+                <h4>Vergi Hesapla</h4>
+                <p>ABD borsalarından elde ettiğiniz yatırım gelirlerinin vergisini kolayca hesaplayın.</p>
                 <div class="social-links">
-                    <a href="https://twitter.com/abdvergi" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-                    <a href="https://linkedin.com/company/abdvergi" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://instagram.com/abdvergi" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/vergihesapla" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/company/vergihesapla" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://instagram.com/vergihesapla" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="footer-section">
@@ -125,13 +129,38 @@
                 <h4>İletişim</h4>
                 <ul class="contact-info">
                     <li><i class="far fa-envelope"></i> info@vergihesapla.net</li>
-                    <li><i class="far fa-clock"></i> Pazartesi - Cuma, 09:00 - 18:00</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 ABD Vergi. Tüm hakları saklıdır.</p>
+            <p>&copy; 2025 Vergi Hesapla. Tüm hakları saklıdır.</p>
         </div>
     </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navbar = document.querySelector('.navbar');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            if (!navbar.contains(event.target) && !mobileMenuBtn.contains(event.target) && navbar.classList.contains('active')) {
+                navbar.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
 </body>
 </html>

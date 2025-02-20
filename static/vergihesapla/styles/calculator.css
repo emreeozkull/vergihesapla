@@ -1,28 +1,8 @@
-/* Import base styles */
-:root {
-    --primary: #0F172A;
-    --primary-dark: #0B1222;
-    --primary-light: #1E293B;
-    --primary-lighter: #334155;
-    --text-primary: #0F172A;
-    --text-secondary: #334155;
-    --text-tertiary: #64748B;
-    --bg-light: #f8fafc;
-    --bg-white: #ffffff;
-    --shadow-color: rgba(15, 23, 42, 0.15);
-}
+@layer global;
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url('./global.css') layer(global);
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--bg-light);
 }
@@ -41,13 +21,13 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 72px;
-    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 1rem;
+    text-wrap: nowrap;
 }
 
 .logo-symbol {
@@ -59,6 +39,7 @@ header {
     box-shadow: 0 2px 8px var(--shadow-color);
     transform: rotate(45deg);
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logo-symbol::before {
@@ -85,6 +66,26 @@ header {
 .logo a span {
     color: var(--primary);
     font-weight: 700;
+}
+
+.logo:hover .logo-symbol {
+    transform: rotate(45deg) scale(1.05);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+@media (max-width: 768px) {
+    header {
+        height: 64px;
+        padding: 0 5%;
+    }
+    
+    .logo-symbol::before {
+        font-size: 1rem;
+    }
+    
+    .logo a {
+        font-size: 1.25rem;
+    }
 }
 
 /* Main container styles */

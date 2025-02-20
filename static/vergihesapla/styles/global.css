@@ -1,0 +1,18 @@
+@layer reset, fonts;
+
+@import url('./reset.css') layer(reset);
+@import url('./fonts.css') layer(fonts);
+
+/* Base styles and colors */
+:root {
+    --primary: #0F172A;        /* Darker blue for more authority */
+    --primary-dark: #0B1222;
+    --primary-light: #1E293B;
+    --primary-lighter: #334155;
+    --text-primary: #0F172A;   /* Matching dark blue for text */
+    --text-secondary: #334155;
+    --text-tertiary: #64748B;
+    --bg-light: #f8fafc;
+    --bg-white: #ffffff;
+    --shadow-color: rgba(37, 99, 235, 0.15);
+}

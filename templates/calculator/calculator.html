@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vergi Hesaplayıcı</title>
     {% load static %}
-
-    <meta name="description" content="ABD Vergi kullanarak kolayca ABD borsasındaki vergilerinizi hesaplayabilirsiniz.">
+    
+    <meta name="description" content="Vergi Hesapla kullanarak kolayca Amerikan borsalarındaki vergilerinizi hesaplayabilirsiniz.">
+    <link rel="icon" href="./images/favicon.svg">
     <link rel="stylesheet" href="{% static 'vergihesapla/styles/calculator.css' %}">
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -23,27 +25,27 @@
 
     <main>
         <div class="calculator-container">
-            <h1>Vergi Hesaplayıcı</h1>
-            <p class="subtitle">Midas'ta <em>'Menü / Profil ve Ayarlar / Belgeler / Ekstresler'</em> kısmından bütün işlemlerinize ait aylık hesap ekstrelerinizi yükleyin</p>
-
+            <h1>Ekstre yükleme</h1>
+            <p class="subtitle">Midas'ta <em>'Menü / Profil ve Ayarlar / Belgeler / Ekstreler'</em> kısmından <strong>Amerikan Doları</strong> altındaki bütün işlemlerinize ait aylık hesap ekstrelerinizi yükleyin</p>
             <div class="warning-banner">
                 <i class="fas fa-exclamation-triangle"></i>
                 <p>
-Bu hesaplama aracı sadece referans amaçlı olup muhasebe hizmeti niteliği taşımamaktadır. Vergi beyannamesi vermeden önce tüm gelir ve gider kalemlerinizi göz önüne almanızı ve mutlaka bir mali müşavir ile görüşmenizi öneririz.                </p>
+                    Bu hesaplama aracı sadece referans amaçlıdır. Vergi beyannamesi vermeden önce mutlaka bir mali müşavir ile görüşmenizi öneririz.
+                </p>
             </div>
 
             <div class="progress-steps">
                 <div class="step active">
                     <div class="step-number">1</div>
-                    <div class="step-label">Dosya Yükle</div>
+                    <div class="step-label">Ekstre Yükle</div>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <div class="step-label">Hesapla</div>
+                    <div class="step-label">Öde</div>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <div class="step-label">Öde</div>
+                    <div class="step-label">Sonuç</div>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
@@ -52,8 +54,6 @@ Bu hesaplama aracı sadece referans amaçlı olup muhasebe hizmeti niteliği ta�
             </div>
 
             <div class="upload-section">
-                <div id="validation-message" class="validation-message" style="display: none;"></div>
-                
                 <div class="upload-area" id="dropZone">
                     <input type="file" id="fileInput" multiple accept=".pdf" class="file-input" />
                     <i class="fas fa-cloud-upload-alt"></i>
@@ -69,8 +69,7 @@ Bu hesaplama aracı sadece referans amaçlı olup muhasebe hizmeti niteliği ta�
 
             <div class="action-buttons">
                 <button class="calculate-button" disabled>
-                    <i class="fas fa-calculator"></i>
-                    Vergi Hesapla
+                    Devam Et
                 </button>
             </div>
 
@@ -81,7 +80,7 @@ Bu hesaplama aracı sadece referans amaçlı olup muhasebe hizmeti niteliği ta�
                     <ol>
                         <li>Midas uygulamasından aylık ekstrelerinizi indirin</li>
                         <li>Tüm ekstreleri buraya yükleyin</li>
-                        <li>Sistem otomatik olarak verginizi hesaplayacak</li>
+                        <li>2024 yılında ABD borsalarında elde ettiğiniz yatırım gelirleri hesaplanacak</li>
                         <li>Detaylı raporunuzu indirin</li>
                     </ol>
                 </div>
@@ -101,6 +100,6 @@ Bu hesaplama aracı sadece referans amaçlı olup muhasebe hizmeti niteliği ta�
         </div>
     </main>
 
-    <script src="{% static 'vergihesapla/scripts/calculator.js' %} "></script>
+    <script src="{% static 'vergihesapla/scripts/calculator.js' %}"></script>
 </body>
 </html>

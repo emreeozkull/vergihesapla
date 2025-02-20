@@ -1,0 +1,29 @@
+@font-face {
+    font-family: InterVariable;
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('../fonts/InterVariable.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: InterVariable;
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('../fonts/InterVariable-Italic.woff2') format('woff2');
+}
+
+:root {
+    --font-stack: InterVariable, system-ui, Arial, Helvetica, sans-serif;
+}
+
+body {
+    font-family: var(--font-stack);
+    font-size: 100%;
+    line-height: 1.6;
+    text-rendering: optimizeSpeed;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

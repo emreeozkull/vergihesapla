@@ -339,7 +339,8 @@ class Stock:
                         buy_transaction.date,
                         transaction.date
                     )
-                    self.profit += income
+                    if transaction.date.year == 2024:
+                        self.profit += income
                     self.profits_sell_transactions.append(income)
                     buy_transaction.quantity -= transaction_quantity
                     self.portfolio.quantity -= transaction_quantity # for portfolio tracking

@@ -1,8 +1,11 @@
+import json
+
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.views.decorators.csrf import csrf_exempt
-import json
+
 from datetime import datetime
+from decimal import Decimal
 
 from .models import Calculator, CalculatorPDF, Transaction, Portfolio
 from .midas import Midas, Stock
@@ -63,21 +66,46 @@ def check_pdf(pdf_id):
     midas_instance = Midas(pdf)
     print(f"PDF {pdf_id} processed; portfolio_date: {midas_instance.portfolio_date}")
 
-def calculate_results(request):
+def calculate_tax(profit):
+    total_profit_in_tl = Decimal(profit)
+    # Calculate tax amount
+    if total_profit_in_tl <= 158000:
+        tax_amount = total_profit_in_tl * Decimal("0.15")
+    elif total_profit_in_tl <= 330000:
+        total_profit_in_tl -= Decimal("158000")
+        tax_amount = Decimal("23700") + total_profit_in_tl * Decimal("0.20")
+    elif total_profit_in_tl <= 800000:
+        total_profit_in_tl -= Decimal("330000")
+        tax_amount = Decimal("58100") + total_profit_in_tl * Decimal("0.27")
+    elif total_profit_in_tl <= 4300000:
+        total_profit_in_tl -= Decimal("800000") 
+        tax_amount = Decimal("185000") + total_profit_in_tl * Decimal("0.35")
+    elif total_profit_in_tl > 4300000:
+        total_profit_in_tl -= Decimal("4300000")
+        tax_amount = Decimal("1410000") + total_profit_in_tl * Decimal("0.40")
+    else: 
+        tax_amount = 0
+        print("ERROR in tax amount calculation")
+    return tax_amount
+
+def get_results(request):
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
             calculator_id = data.get('calculator_id')
-            calculator = Calculator.objects.get(id=calculator_id)
-            pdfs = CalculatorPDF.objects.filter(calculator=calculator).order_by('portfolio_date')
-            transactions = Transaction.objects.filter(pdf__in=pdfs).order_by('date')
+            cal_context = calculate_results(calculator_id)
+
             context = {
-                'total_profit_loss': "0.00",
-                'tax_amount': "0.00",
-                'transaction_count': transactions.count(),
-                'transactions': transactions,
+                'total_profit_loss': f"{cal_context['profit']:.2f}",
+                'tax_amount': f"{calculate_tax(cal_context['profit']):.2f}",
+                'transaction_count': len(cal_context['transactions']),
+                'transactions': cal_context['transactions'],
                 'portfolios': [],
+                'symbol_profits': cal_context['symbol_profits'],
             }
+
+            
+
             return render(request, 'vergihesapla/results.html', context)
         except Calculator.DoesNotExist:
             return JsonResponse({'error': 'Calculator not found'}, status=404)
@@ -96,57 +124,63 @@ def test_transactions(request):
     return HttpResponseBadRequest("Invalid request method")
 
 def test_calculation(request, calculator_id):
-    if request.method == 'GET':
-        # Optionally run cleanup_duplicates if needed.
-        cleanup_duplicates(calculator_id)
-        calculator = Calculator.objects.get(id=calculator_id)
-        pdfs = CalculatorPDF.objects.filter(calculator=calculator).order_by('portfolio_date')
-        sorted_transactions = Transaction.objects.filter(pdf__in=pdfs).order_by('date')
-        symbols = list(set(sorted_transactions.values_list("symbol", flat=True)))
-        calculated_stocks = []
-        for symbol in symbols:
-
-            portfolio_list = Portfolio.objects.filter(pdf__calculator = calculator , symbol=symbol).order_by('date')
-            stock = Stock(symbol, portfolio_list[0])
-            portfolio_month = portfolio_list[0].date.month
-            for transaction in sorted_transactions:
-                cleanup_duplicates(calculator_id)
-                if transaction.symbol == symbol:
-                    if transaction.transaction_type == "Alış":
-                        stock.add_transaction(transaction)
-                    elif transaction.transaction_type == "Satış":
-                        stock.calculate_sell_transaction(transaction)
-                    else:
-                        print("Invalid transaction type:", transaction.transaction_type)
-                        raise ValueError("Invalid transaction type")
-                if transaction.date.month != portfolio_month:
-                    for portfolio in portfolio_list:
-                        if portfolio.date.month == portfolio_month:
-                            #stock.check_portfolio(portfolio)
-                            break
-                    portfolio_month = transaction.date.month
-
-            last_pdf_date = pdfs.last().portfolio_date
-            try:
-                portfolio = Portfolio.objects.get(pdf_id = pdfs.last().id, date = last_pdf_date, symbol = symbol)
-                stock.check_portfolio(portfolio)
-            except Portfolio.DoesNotExist:
-                portfolio = Portfolio(date = last_pdf_date, symbol = symbol, quantity = 0, buy_price = 0, profit = 0)
-                stock.check_portfolio(portfolio)
-                print(f"Portfolio for {symbol} on {last_pdf_date} does not exist")
-
-            calculated_stocks.append(stock)
-        context = {
-            'profit': sum(stock.profit for stock in calculated_stocks),
-            'transactions': [],
-            'profits': [stock.profits_sell_transactions for stock in calculated_stocks],
-            'symbols': symbols,
-            'symbol_profits': [(stock.symbol, stock.profit) for stock in calculated_stocks]
-        }
-        for stock in calculated_stocks:
-            context['transactions'].extend(stock.calculated_sell_transactions)
+    context = calculate_results(calculator_id)
+    if request.method == 'POST':
+        return JsonResponse(context)
+    elif request.method == 'GET':   
         return render(request, 'vergihesapla/test_calculation.html', context)
     return HttpResponseBadRequest("Invalid request method")
+
+def calculate_results(calculator_id):
+       # Optionally run cleanup_duplicates if needed.
+    cleanup_duplicates(calculator_id)
+    calculator = Calculator.objects.get(id=calculator_id)
+    pdfs = CalculatorPDF.objects.filter(calculator=calculator).order_by('portfolio_date')
+    sorted_transactions = Transaction.objects.filter(pdf__in=pdfs).order_by('date')
+    symbols = list(set(sorted_transactions.values_list("symbol", flat=True)))
+    calculated_stocks = []
+    for symbol in symbols:
+
+        portfolio_list = Portfolio.objects.filter(pdf__calculator = calculator , symbol=symbol).order_by('date')
+        stock = Stock(symbol, portfolio_list[0])
+        portfolio_month = portfolio_list[0].date.month
+        for transaction in sorted_transactions:
+            cleanup_duplicates(calculator_id)
+            if transaction.symbol == symbol:
+                if transaction.transaction_type == "Alış":
+                    stock.add_transaction(transaction)
+                elif transaction.transaction_type == "Satış":
+                    stock.calculate_sell_transaction(transaction)
+                else:
+                    print("Invalid transaction type:", transaction.transaction_type)
+                    raise ValueError("Invalid transaction type")
+            if transaction.date.month != portfolio_month:
+                for portfolio in portfolio_list:
+                    if portfolio.date.month == portfolio_month:
+                        #stock.check_portfolio(portfolio)
+                        break
+                portfolio_month = transaction.date.month
+
+        last_pdf_date = pdfs.last().portfolio_date
+        try:
+            portfolio = Portfolio.objects.get(pdf_id = pdfs.last().id, date = last_pdf_date, symbol = symbol)
+            stock.check_portfolio(portfolio)
+        except Portfolio.DoesNotExist:
+            portfolio = Portfolio(date = last_pdf_date, symbol = symbol, quantity = 0, buy_price = 0, profit = 0)
+            stock.check_portfolio(portfolio)
+            print(f"Portfolio for {symbol} on {last_pdf_date} does not exist")
+
+        calculated_stocks.append(stock)
+    context = {
+        'profit': sum(stock.profit for stock in calculated_stocks),
+        'transactions': [],
+        'profits': [stock.profits_sell_transactions for stock in calculated_stocks],
+        'symbols': symbols,
+        'symbol_profits': [(stock.symbol, sum(stock.profits_sell_transactions)) for stock in calculated_stocks]
+    }
+    for stock in calculated_stocks:
+        context['transactions'].extend(stock.calculated_sell_transactions)
+    return context
 
 def cleanup_duplicates(calculator_id):
     from django.db import models

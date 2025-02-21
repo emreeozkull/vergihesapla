@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vergi Hesaplama Sonuçları</title>
+    <title>2024 Yılı Hesaplama Sonuçları</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'vergihesapla/styles/index.css' %}">
     <link rel="stylesheet" href="{% static 'vergihesapla/styles/results.css' %}">
@@ -27,7 +27,7 @@
 
     <main class="results-container">
         <section class="results-summary">
-            <h1>Vergi Hesaplama Sonuçları</h1>
+            <h1>2024 Yılı Hesaplama Sonuçları</h1>
             <div class="results-cards">
                 <div class="result-card">
                     <h3>Toplam Kar/Zarar</h3>
@@ -56,11 +56,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for transaction in transactions %}
+                        {% for symbol, symbol_profit in symbol_profits %}
                         <tr>
-                            <td>{{ transaction.symbol }}</td>
-                            <td class="number">{{ transaction.total }}₺</td>
-                            <td class="number">{{ transaction.total_usd }}USD</td>
+                            <td class="symbol">{{ symbol }}</td>
+                            <td class="number">{{ symbol_profit }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

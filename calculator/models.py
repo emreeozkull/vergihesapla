@@ -67,7 +67,7 @@ class Transaction(models.Model):
 
     class Meta:
         ordering = ['-date']
-        unique_together = ['date', 'symbol', 'transaction_type', 'price', 'quantity', 'pdf']
+        unique_together = ['pdf','date', 'symbol', 'transaction_type', 'price', 'quantity']
 
 class Portfolio(models.Model):
     pdf = models.ForeignKey(CalculatorPDF, on_delete=models.CASCADE)

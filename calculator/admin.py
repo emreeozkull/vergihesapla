@@ -32,7 +32,7 @@ admin.site.register(Transaction, TransactionAdmin)
 class PortfolioAdmin(admin.ModelAdmin):
     list_display = ('pdf', 'date', 'symbol', 'quantity', 'buy_price', 'profit')
     list_filter = ('pdf__calculator__id',)
-    search_fields = ('pdf__calculator__id', 'pdf__calculator__name')
+    search_fields = ('pdf__calculator__id', 'pdf__calculator__name', 'symbol')
     list_per_page = 50
     ordering = ('-pdf__calculator__id',)
 

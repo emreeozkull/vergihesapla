@@ -3,7 +3,6 @@
 @import url('./global.css') layer(global);
 
 body {
-    line-height: 1.6;
     color: var(--text-primary);
     background-color: #ffffff;
 }

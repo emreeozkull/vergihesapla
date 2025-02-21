@@ -419,23 +419,61 @@ header {
     letter-spacing: -0.02em;
 }
 
-.pricing-card .price {
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 2rem;
-    letter-spacing: -0.03em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.2rem;
+.price-container {
+    text-align: center;
+    margin: 1.5rem 0;
 }
 
-.pricing-card .price::after {
-    content: "TL";
-    font-size: 1.5rem;
+.original-price {
+    margin-bottom: 0.5rem;
+}
+
+.crossed-price {
+    font-size: 1.8rem;
     font-weight: 600;
-    color: var(--text-tertiary);
+    color: #94a3b8;
+    text-decoration: line-through;
+    position: relative;
+    opacity: 0.8;
+}
+
+.crossed-price::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 2px;
+    background: #e74c3c;
+    transform: rotate(-8deg);
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0;
+    background: linear-gradient(135deg, var(--primary), #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: priceGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes priceGlow {
+    from {
+        opacity: 0.9;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.limited-time {
+    font-size: 1rem;
+    color: #e74c3c;
+    margin: 0.5rem 0 0 0;
+    font-weight: 600;
 }
 
 .pricing-card ul {

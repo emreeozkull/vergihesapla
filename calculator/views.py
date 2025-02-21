@@ -143,9 +143,24 @@ def calculate_results(calculator_id):
 
         portfolio_list = Portfolio.objects.filter(pdf__calculator = calculator , symbol=symbol).order_by('date')
         stock = Stock(symbol, portfolio_list[0])
-        portfolio_month = portfolio_list[0].date.month
+        portfolio_date = sorted_transactions[0].pdf.portfolio_date
         for transaction in sorted_transactions:
             cleanup_duplicates(calculator_id)
+
+            if transaction.pdf.portfolio_date != portfolio_date:
+                try:
+                    portfolio = Portfolio.objects.get(pdf__calculator = calculator , date = portfolio_date, symbol = symbol)
+                    with open("portfolio_log.txt", "a") as f:
+                        f.write(f"\ntransaction pdf portfolio date: {transaction.pdf.portfolio_date} portfolio month: {portfolio_date.month}\n")
+                        f.write(f"portfolio exists, transaction date: {transaction.date}\n")
+                except Portfolio.DoesNotExist:
+                    with open("portfolio_log.txt", "a") as f:
+                        f.write(f"\nportfolio doesn't exist: transaction date: {transaction.date}\n")
+                    portfolio = Portfolio(date = portfolio_date, symbol = symbol, quantity = 0, buy_price = 0, profit = 0)
+                stock.check_portfolio(portfolio)
+                portfolio_date = transaction.pdf.portfolio_date
+                    
+            
             if transaction.symbol == symbol:
                 if transaction.transaction_type == "Alış":
                     stock.add_transaction(transaction)
@@ -153,22 +168,17 @@ def calculate_results(calculator_id):
                     stock.calculate_sell_transaction(transaction)
                 else:
                     print("Invalid transaction type:", transaction.transaction_type)
-                    raise ValueError("Invalid transaction type")
-            if transaction.date.month != portfolio_month:
-                for portfolio in portfolio_list:
-                    if portfolio.date.month == portfolio_month:
-                        #stock.check_portfolio(portfolio)
-                        break
-                portfolio_month = transaction.date.month
+                    raise ValueError("Invalid transaction type")      
 
         last_pdf_date = pdfs.last().portfolio_date
         try:
             portfolio = Portfolio.objects.get(pdf_id = pdfs.last().id, date = last_pdf_date, symbol = symbol)
-            stock.check_portfolio(portfolio)
         except Portfolio.DoesNotExist:
             portfolio = Portfolio(date = last_pdf_date, symbol = symbol, quantity = 0, buy_price = 0, profit = 0)
-            stock.check_portfolio(portfolio)
             print(f"Portfolio for {symbol} on {last_pdf_date} does not exist")
+        if not stock.check_portfolio(portfolio):
+            raise ValueError("Portfolio is not corrolated at the end of the calculation")
+
 
         calculated_stocks.append(stock)
     context = {
@@ -182,20 +192,40 @@ def calculate_results(calculator_id):
         context['transactions'].extend(stock.calculated_sell_transactions)
     return context
 
+
 def cleanup_duplicates(calculator_id):
+    from django.db.models import Count
     from django.db import models
+
     calculator = Calculator.objects.get(id=calculator_id)
     pdfs = CalculatorPDF.objects.filter(calculator=calculator)
+    
+    # Find duplicates across all PDFs for this calculator
     duplicates = (Transaction.objects.filter(pdf__in=pdfs)
-                  .values('date', 'symbol', 'transaction_type', 'price', 'quantity')
-                  .annotate(count=models.Count('id'))
-                  .filter(count__gt=1))
-    if len(duplicates) >0 :
-        with open("duplicates.txt", "a") as f:
-            f.write(str(pdfs[0].pdf.name))
-            for dup in duplicates:
-                f.write(str(dup) + "\n") # json.loads(dup)
-            f.write("end!")
+                 .values('date', 'symbol', 'transaction_type', 'price', 'quantity')
+                 .annotate(count=Count('id'))
+                 .filter(count__gt=1)
+                 .order_by('date'))
+
+    # Print or log the duplicates
+    if len(duplicates) > 0:
+        print(f"\nFound {len(duplicates)} duplicate transactions:")
+    for dup in duplicates:
+        print("\nDuplicate group:")
+        transactions = Transaction.objects.filter(
+            pdf__in=pdfs,
+            date=dup['date'],
+            symbol=dup['symbol'],
+            transaction_type=dup['transaction_type'],
+            price=dup['price'],
+            quantity=dup['quantity']
+        ).order_by('id')
+        
+        for t in transactions:
+            print(f"ID: {t.id}, PDF: {t.pdf.id}, Date: {t.date}, Symbol: {t.symbol}, "
+                  f"Type: {t.transaction_type}, Price: {t.price}, Quantity: {t.quantity}")
+
+    # Optionally clean up the duplicates
     for dup in duplicates:
         transactions = Transaction.objects.filter(
             pdf__in=pdfs,
@@ -205,5 +235,8 @@ def cleanup_duplicates(calculator_id):
             price=dup['price'],
             quantity=dup['quantity']
         ).order_by('id')
+        
+        # Keep the first one, delete the rest
         first_transaction = transactions.first()
         transactions.exclude(id=first_transaction.id).delete()
+        print(f"\nKept transaction ID {first_transaction.id}, deleted {dup['count']-1} duplicates")

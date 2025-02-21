@@ -269,7 +269,7 @@ def get_rate(date: datetime):
         date -= timedelta(days=1)
         formatted_date = date.strftime("%d-%m-%Y")
         if formatted_date in rates:
-            return Decimal(rates[formatted_date])
+            return Decimal(str(rates[formatted_date]))
     raise ValueError(f"No exchange rate found for date {formatted_date}")
 
 def get_ufe(month: int, year: int):
@@ -280,7 +280,7 @@ def get_ufe(month: int, year: int):
         month -= 1
     for i in ufe_data:
         if i["Year"] == f"{year}":
-            return Decimal(i[f"{month:02d}"])
+            return Decimal(str(i[f"{month:02d}"]))
 
 def calculate_income(sell_quantity, buy_price, sell_price, buy_date, sell_date):
     sell_ufe = get_ufe(sell_date.month, sell_date.year)
@@ -311,20 +311,20 @@ class Stock:
         self.portfolio = Portfolio(pdf = portfolio.pdf, date = portfolio.date, symbol = portfolio.symbol, quantity = Decimal(0), buy_price = portfolio.buy_price, profit = portfolio.profit)
 
     def add_transaction(self, transaction: Transaction):
-        if transaction.transaction_type == "Alış":
+        if transaction.symbol == self.symbol and transaction.transaction_type == "Alış":
             copy_transaction = {
-                "date": transaction.date,
-                "quantity": transaction.quantity
+                "date": transaction.date.strftime("%d/%m/%y"),
+                "quantity": str(transaction.quantity)
             }
             self.debug_buy_transactions.append(copy_transaction)
             self.buy_transactions.append(transaction)
             self.portfolio.quantity += transaction.quantity # for portfolio tracking
 
     def calculate_sell_transaction(self, transaction: Transaction):
-        if transaction.transaction_type == "Satış":
+        if transaction.symbol == self.symbol and transaction.transaction_type == "Satış":
             copy_transaction = {
-                "date": transaction.date,
-                "quantity": transaction.quantity
+                "date": transaction.date.strftime("%d/%m/%y"),
+                "quantity": str(transaction.quantity)
             }
             self.debug_sell_transactions.append(copy_transaction)
             for buy_transaction in self.buy_transactions:
@@ -360,16 +360,20 @@ class Stock:
             raise ValueError(f"Portfolio symbol {portfolio.symbol} does not match stock symbol {self.symbol}")
         else:
             if self.portfolio.quantity == portfolio.quantity:
-                with open("error_portfolio.txt", "a") as f:
-                    f.write(f"portfolio date: {portfolio.date}")
+                with open("portfolio_log.txt", "a") as f:
+                    f.write(f"check portfolio date: {portfolio.date}\n")
                     f.write(f"success: {self.symbol} - calculated portfolio:{self.portfolio.quantity} vs {portfolio.quantity}\n")
                 return True
             else:
-                with open("error_portfolio.txt", "a") as f:
-                    f.write(f"\nportfolio date: {portfolio.date} error:")
+                with open("portfolio_log.txt", "a") as f:
+                    f.write(f"check portfolio date: {portfolio.date} \nerror:")
                     f.write(f"{self.symbol} - calculated portfolio:{self.portfolio.quantity} vs {portfolio.quantity}\n")
                     f.write(f"buy transactions: {str(self.debug_buy_transactions)}\n")
                     f.write(f"sell transactions: {str(self.debug_sell_transactions)}\n")
-                raise ValueError("portfolio is not corrolated")
+                    if self.symbol == "AMZN":
+                        f.write(f"buy transactions: {str(self.buy_transactions)}\n")
+                        f.write(f"calculated sell transactions: {str(self.calculated_sell_transactions)}\n")
+                        f.write(f"profits sell transactions: {str(self.profits_sell_transactions)}\n")
+                #raise ValueError("portfolio is not corrolated")
                 return False 
 

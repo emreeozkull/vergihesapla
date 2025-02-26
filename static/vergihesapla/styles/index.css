@@ -26,44 +26,7 @@ header {
     align-items: center;
     gap: 1rem;
     text-wrap: nowrap;
-}
-
-.logo-symbol {
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, #334155 0%, #64748B 100%);
-    border-radius: 8px;
-    position: relative;
-    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
-    transform: rotate(45deg);
-    overflow: hidden;
-}
-
-.logo-symbol::before {
-    content: "VH";             /* Changed to initials instead of $ */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-45deg);
-    color: white;
-    font-size: 0.9rem;
-    font-weight: 800;
-    letter-spacing: -0.05em;
-}
-
-.logo a {
-    font-size: 1.4rem;
-    font-weight: 800;          /* Extra bold for more impact */
-    color: var(--bg-light);
-    text-decoration: none;
-    letter-spacing: -0.03em;   /* Tighter letter spacing */
-    text-transform: uppercase; /* Optional: makes it more authoritative */
-}
-
-/* Add a subtle color accent to "Vergi" */
-.logo a span {
-    color: var(--bg-light);
-    font-weight: 700;
+    width: 216px;
 }
 
 .navbar {
@@ -185,14 +148,6 @@ header {
 
     .pricing-card .cta-button {
         padding: 0.75rem 2rem;
-    }
-    
-    .logo-symbol::before {
-        font-size: 1rem;
-    }
-    
-    .logo a {
-        font-size: 1.25rem;
     }
 }
 
@@ -419,61 +374,22 @@ header {
     letter-spacing: -0.02em;
 }
 
-.price-container {
-    text-align: center;
-    margin: 1.5rem 0;
-}
-
-.original-price {
-    margin-bottom: 0.5rem;
-}
-
-.crossed-price {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #94a3b8;
-    text-decoration: line-through;
-    position: relative;
-    opacity: 0.8;
-}
-
-.crossed-price::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    height: 2px;
-    background: #e74c3c;
-    transform: rotate(-8deg);
-}
-
-.price {
-    font-size: 2.5rem;
-    font-weight: 700;
+.pricing-card .price {
+    font-size: 3.5rem;
+    font-weight: 800;
     color: var(--primary);
-    margin: 0;
-    background: linear-gradient(135deg, var(--primary), #3b82f6);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: priceGlow 2s ease-in-out infinite alternate;
+    letter-spacing: -0.03em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
 }
 
-@keyframes priceGlow {
-    from {
-        opacity: 0.9;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.limited-time {
-    font-size: 1rem;
-    color: #e74c3c;
-    margin: 0.5rem 0 0 0;
+.pricing-card .price::after {
+    content: "₺";
+    font-size: 1.5rem;
     font-weight: 600;
+    color: var(--text-tertiary);
 }
 
 .pricing-card ul {
@@ -767,14 +683,6 @@ footer::before {
         height: 64px;
         padding: 0 5%;
     }
-    
-    .logo-symbol::before {
-        font-size: 1rem;
-    }
-    
-    .logo a {
-        font-size: 1.25rem;
-    }
 
     .nav-links {
         gap: 1.25rem;
@@ -833,8 +741,6 @@ header ::selection {
     color: var(--bg-light);
 }
 
-.logo a::selection,
-.logo a span::selection,
 .nav-links a:not(.cta-button)::selection {
     background: rgba(255, 255, 255, 0.25);
     color: var(--bg-light);
@@ -867,20 +773,6 @@ header ::selection {
 .hero .cta-button *::selection {
     background: rgba(37, 99, 235, 0.15);
     color: var(--primary);
-}
-
-.logo:hover .logo-symbol {
-    transform: rotate(45deg) scale(1.05);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-}
-
-.logo-symbol {
-    /* ... existing styles ... */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.logo:hover .logo-symbol {
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
 /* Warning banner styles */
@@ -994,27 +886,24 @@ header ::selection {
     color: var(--primary);
 }
 
-.logo:hover .logo-symbol {
-    transform: rotate(45deg) scale(1.05);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-}
-
-.logo-symbol {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
 /* Mobile menu button styles */
 .mobile-menu-btn {
     display: none;
     background: none;
     border: none;
-    padding: 0.5rem;
+    padding: 0.75rem;
     cursor: pointer;
     color: var(--bg-light);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.mobile-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .mobile-menu-btn i {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 /* Update responsive styles */
@@ -1027,24 +916,34 @@ header ::selection {
         position: absolute;
         top: 64px;
         left: 0;
-        width: 100%;
-        background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        padding: 1rem 0;
+        right: 0;
+        margin: 0 5%;
+        background: white;
+        border-radius: 16px;
+        padding: 1rem;
         display: none;
+        box-shadow: 
+            0 4px 6px rgba(15, 23, 42, 0.02),
+            0 12px 24px rgba(15, 23, 42, 0.05);
+        border: 1px solid rgba(15, 23, 42, 0.05);
+        transform: translateY(-10px);
+        opacity: 0;
+        transition: all 0.3s ease;
     }
 
     .navbar.active {
         display: block;
+        transform: translateY(0);
+        opacity: 1;
     }
 
     .nav-links {
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 0.75rem;
         margin: 0;
-        padding: 1rem 5%;
+        padding: 0;
+        width: 100%;
     }
 
     .nav-links li {
@@ -1054,13 +953,133 @@ header ::selection {
 
     .nav-links a:not(.cta-button) {
         display: block;
+        width: 100%;
         padding: 0.75rem 0;
         font-size: 1rem;
+        color: var(--text-primary);
+        border-radius: 8px;
+        transition: all 0.2s ease;
+    }
+
+    .nav-links a:not(.cta-button):hover {
+        background: var(--bg-light);
+        color: var(--primary);
+    }
+
+    .nav-links a:not(.cta-button)::after {
+        display: none;
     }
 
     .nav-links .cta-button {
         width: 100%;
+        margin: 0.25rem 0;
         text-align: center;
+        background: var(--primary);
+        color: white;
+        padding: 0.75rem 0;
+    }
+
+    .nav-links .cta-button:hover {
+        background: var(--primary-dark);
+        color: white;
+    }
+}
+
+/* Price container and discount styles */
+.price-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2.5rem 0;
+}
+
+.pricing-card .price.original {
+    position: relative;
+    color: var(--text-tertiary);
+    font-size: 1.15rem;
+    opacity: 0.5;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.pricing-card .price.original::after {
+    content: "₺";
+    font-size: 0.75rem;
+    color: inherit;
+    font-weight: inherit;
+}
+
+.pricing-card .price.original::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -0.5rem;
+    right: -0.5rem;
+    height: 1.5px;
+    background: currentColor;
+    transform: rotate(-6deg);
+}
+
+/* Update current price styles */
+.pricing-card .price {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.03em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    line-height: 1;
+}
+
+.pricing-card .price::after {
+    content: "₺";
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: inherit;
+    opacity: 0.8;
+}
+
+/* Limited time offer banner */
+.limited-offer {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    padding: 0.6rem 1.25rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
+    text-wrap: nowrap;
+}
+
+.limited-offer i {
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .pricing-card .price {
+        font-size: 3.5rem;
+    }
+
+    .pricing-card .price.original {
+        font-size: 1rem;
+    }
+
+    .limited-offer {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
     }
 }
 

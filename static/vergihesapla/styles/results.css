@@ -1,29 +1,84 @@
+/* Header styles */
 header {
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1rem 2rem;
-    position: sticky;
+    padding: 3rem 8%;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: fixed;
+    width: 100%;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
+    gap: 1rem;
+    text-wrap: nowrap;
+}
+
+.logo-symbol {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-lighter) 100%);
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    transform: rotate(45deg);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-symbol::before {
+    content: "VH";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
 }
 
 .logo a {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #333;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text-primary);
     text-decoration: none;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
 }
 
-.logo span {
-    color: #2563eb;
+.logo a span {
+    color: var(--primary);
+    font-weight: 700;
 }
+
+.logo:hover .logo-symbol {
+    transform: rotate(45deg) scale(1.05);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+@media (max-width: 768px) {
+    header {
+        height: 64px;
+        padding: 0 5%;
+    }
+    
+    .logo-symbol::before {
+        font-size: 1rem;
+    }
+    
+    .logo a {
+        font-size: 1.25rem;
+    }
+}
+
 
 .navbar {
     display: flex;
@@ -51,8 +106,8 @@ header {
 
 .results-container {
     max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    margin: 0 auto;
+    padding: 120px 1rem 2rem;
     background-color: #f8fafc;
 }
 
@@ -156,6 +211,10 @@ header {
 
     .result-card .amount {
         font-size: 1.5rem;
+    }
+
+    .results-container {
+        padding-top: 100px;
     }
 }
 

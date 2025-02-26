@@ -105,12 +105,11 @@ def get_results(request):
             }
 
             
-
             return render(request, 'vergihesapla/results.html', context)
         except Calculator.DoesNotExist:
             return JsonResponse({'error': 'Calculator not found'}, status=404)
         except Exception as e:
-            return JsonResponse({'error': str(e)}, status=500)
+            raise ValueError("val error:", e)
     return render(request, 'vergihesapla/results.html')
 
 def test_transactions(request):
@@ -140,13 +139,17 @@ def calculate_results(calculator_id):
     symbols = list(set(sorted_transactions.values_list("symbol", flat=True)))
     calculated_stocks = []
     for symbol in symbols:
+        sorted_symbol_transactions = Transaction.objects.filter(pdf__in=pdfs, symbol=symbol).order_by('date')
+        portfolio_date = sorted_symbol_transactions.first().pdf.portfolio_date
+        
+        try:
+            first_portfolio = Portfolio.objects.get(pdf_id = pdfs.first().id, date = portfolio_date, symbol = symbol)
+        except :
+            first_portfolio = Portfolio(pdf = pdfs.first(), date = portfolio_date, symbol = symbol, quantity = 0, buy_price = 0, profit = 0)
+        stock = Stock(symbol, first_portfolio)
 
-        portfolio_list = Portfolio.objects.filter(pdf__calculator = calculator , symbol=symbol).order_by('date')
-        stock = Stock(symbol, portfolio_list[0])
-        portfolio_date = sorted_transactions[0].pdf.portfolio_date
-        for transaction in sorted_transactions:
+        for transaction in sorted_symbol_transactions:
             cleanup_duplicates(calculator_id)
-
             if transaction.pdf.portfolio_date != portfolio_date:
                 try:
                     portfolio = Portfolio.objects.get(pdf__calculator = calculator , date = portfolio_date, symbol = symbol)
@@ -159,8 +162,7 @@ def calculate_results(calculator_id):
                     portfolio = Portfolio(date = portfolio_date, symbol = symbol, quantity = 0, buy_price = 0, profit = 0)
                 stock.check_portfolio(portfolio)
                 portfolio_date = transaction.pdf.portfolio_date
-                    
-            
+
             if transaction.symbol == symbol:
                 if transaction.transaction_type == "Alış":
                     stock.add_transaction(transaction)
@@ -168,8 +170,9 @@ def calculate_results(calculator_id):
                     stock.calculate_sell_transaction(transaction)
                 else:
                     print("Invalid transaction type:", transaction.transaction_type)
-                    raise ValueError("Invalid transaction type")      
-
+                    raise ValueError("Invalid transaction type")     
+        
+        #check last portfolio with calculation values
         last_pdf_date = pdfs.last().portfolio_date
         try:
             portfolio = Portfolio.objects.get(pdf_id = pdfs.last().id, date = last_pdf_date, symbol = symbol)
@@ -179,14 +182,13 @@ def calculate_results(calculator_id):
         if not stock.check_portfolio(portfolio):
             raise ValueError("Portfolio is not corrolated at the end of the calculation")
 
-
         calculated_stocks.append(stock)
     context = {
         'profit': sum(stock.profit for stock in calculated_stocks),
         'transactions': [],
         'profits': [stock.profits_sell_transactions for stock in calculated_stocks],
         'symbols': symbols,
-        'symbol_profits': [(stock.symbol, sum(stock.profits_sell_transactions)) for stock in calculated_stocks]
+        'symbol_profits': [(stock.symbol, round(sum(stock.profits_sell_transactions),2) , round(stock.usd_profit, 2)) for stock in calculated_stocks]
     }
     for stock in calculated_stocks:
         context['transactions'].extend(stock.calculated_sell_transactions)
@@ -210,33 +212,33 @@ def cleanup_duplicates(calculator_id):
     # Print or log the duplicates
     if len(duplicates) > 0:
         print(f"\nFound {len(duplicates)} duplicate transactions:")
-    for dup in duplicates:
-        print("\nDuplicate group:")
-        transactions = Transaction.objects.filter(
-            pdf__in=pdfs,
-            date=dup['date'],
-            symbol=dup['symbol'],
-            transaction_type=dup['transaction_type'],
-            price=dup['price'],
-            quantity=dup['quantity']
-        ).order_by('id')
-        
-        for t in transactions:
-            print(f"ID: {t.id}, PDF: {t.pdf.id}, Date: {t.date}, Symbol: {t.symbol}, "
-                  f"Type: {t.transaction_type}, Price: {t.price}, Quantity: {t.quantity}")
+        for dup in duplicates:
+            print("\nDuplicate group:")
+            transactions = Transaction.objects.filter(
+                pdf__in=pdfs,
+                date=dup['date'],
+                symbol=dup['symbol'],
+                transaction_type=dup['transaction_type'],
+                price=dup['price'],
+                quantity=dup['quantity']
+            ).order_by('id')
+            
+            for t in transactions:
+                print(f"ID: {t.id}, PDF: {t.pdf.id}, Date: {t.date}, Symbol: {t.symbol}, "
+                    f"Type: {t.transaction_type}, Price: {t.price}, Quantity: {t.quantity}")
 
-    # Optionally clean up the duplicates
-    for dup in duplicates:
-        transactions = Transaction.objects.filter(
-            pdf__in=pdfs,
-            date=dup['date'],
-            symbol=dup['symbol'],
-            transaction_type=dup['transaction_type'],
-            price=dup['price'],
-            quantity=dup['quantity']
-        ).order_by('id')
-        
-        # Keep the first one, delete the rest
-        first_transaction = transactions.first()
-        transactions.exclude(id=first_transaction.id).delete()
-        print(f"\nKept transaction ID {first_transaction.id}, deleted {dup['count']-1} duplicates")
+        # Optionally clean up the duplicates
+        for dup in duplicates:
+            transactions = Transaction.objects.filter(
+                pdf__in=pdfs,
+                date=dup['date'],
+                symbol=dup['symbol'],
+                transaction_type=dup['transaction_type'],
+                price=dup['price'],
+                quantity=dup['quantity']
+            ).order_by('id')
+            
+            # Keep the first one, delete the rest
+            first_transaction = transactions.first()
+            transactions.exclude(id=first_transaction.id).delete()
+            print(f"\nKept transaction ID {first_transaction.id}, deleted {dup['count']-1} duplicates")

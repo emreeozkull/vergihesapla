@@ -16,8 +16,9 @@
 <body>
     <header>
         <div class="logo">
-            <div class="logo-symbol"></div>
-            <a href="{% url 'index' %}">Vergi <span>Hesapla</span></a>
+            <a href="{% url 'index' %}">
+                <img src="{% static 'vergihesapla/images/logo.svg' %}" alt="Vergi Hesapla logo">
+            </a>
         </div>
         <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
             <i class="fas fa-bars"></i>
@@ -35,8 +36,8 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>Midas Yatırımcıları için Vergi Hesaplama Çözümü</h1>
-                <p>PDF ekstrenizi yükleyin, vergi hesaplamanızı anında yapın</p>
+                <h1>Yabancı Hisse Senedi Yatırımcıları için Vergi Hesaplama Çözümü</h1>
+                <p>PDF ekstrenizi yükleyin, vergi hesaplamanız için kârınızı anında hesaplayın</p>
                 <a href="{% url 'calculator' %}" class="cta-button">Hemen Başla</a>
             </div>
             <div class="hero-image">
@@ -68,7 +69,7 @@
         <div class="warning-banner">
             <i class="fas fa-exclamation-triangle"></i>
             <p>
-                Sitemizde sunulan hesaplama aracı sadece referans amaçlıdır. Vergi beyannamesi vermeden önce mutlaka bir mali müşavir ile görüşmenizi öneririz.
+                Bu hesaplama aracı sadece referans amaçlı olup muhasebe hizmeti niteliği taşımamaktadır. Vergi beyannamesi vermeden önce tüm gelir ve gider kalemlerinizi göz önüne almanızı ve mutlaka bir mali müşavir ile görüşmenizi öneririz.
             </p>
         </div>
 
@@ -79,13 +80,13 @@
             </p>
             <div class="pricing-cards">
                 <div class="pricing-card featured">
+                    <div class="limited-offer">
+                        <i class="fas fa-clock"></i> 1 Mart'a kadar ücretsiz
+                    </div>
                     <h3>2024 Yılı Vergi Hesaplama</h3>
                     <div class="price-container">
-                        <div class="original-price">
-                            <span class="crossed-price">299₺</span>
-                        </div>
-                        <p class="price">0₺</p>
-                        <p class="limited-time">1 Mart'a kadar</p>
+                        <p class="price original">299</p>
+                        <p class="price">0</p>
                     </div>
                     <ul>
                         <li>2024 yılı ABD hisse senedi vergi hesaplama</li>
@@ -93,7 +94,7 @@
                         <li>Midas ekstresi otomatik analiz</li>
                         <li>iyzico ile güvenli ödeme</li>
                     </ul>
-                    <a href="{% url 'calculator' %}" class="cta-button">Hemen Hesapla</a>
+                    <a href="{% url 'calculator' %}" class="cta-button">Ücretsiz Hesapla</a>
                     <p class="disclaimer">
                         * Bu hesaplama aracı referans amaçlıdır. Vergi beyannamesi öncesi mali müşavir görüşü alınması önerilir.
                     </p>

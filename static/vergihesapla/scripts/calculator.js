@@ -7,6 +7,8 @@ const uploadButton = document.querySelector('.upload-button');
 // Add this at the top with your other constants
 let currentCalculatorId = null;
 
+let errorCount = 0;
+
 // Add this near the top with other constants
 const calculateForm = document.getElementById('calculateForm');
 
@@ -216,7 +218,11 @@ calculateButton.addEventListener('click', async () => {
             throw new Error('Calculation failed');
         }
     } catch (error) {
+        errorCount ++;
         console.error('Calculation error:', error);
-        showValidation('Hesaplama işlemi başarısız oldu.', 'error');
+        showValidation('Hesaplama işlemi başarısız oldu. Lütfen eksik ekstrelerinizi kontrol ediniz.', 'error');
+        if (errorCount >= 3){
+            showValidation('Satış yaptığınız tüm işlemlerin ilk alış tarihindeki ekstreleri eksiksiz girmeniz gerekmektedir.')
+        }
     }
 });

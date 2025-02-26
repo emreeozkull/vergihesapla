@@ -28,63 +28,13 @@ header {
     align-items: center;
     gap: 1rem;
     text-wrap: nowrap;
-}
-
-.logo-symbol {
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-lighter) 100%);
-    border-radius: 8px;
-    position: relative;
-    box-shadow: 0 2px 8px var(--shadow-color);
-    transform: rotate(45deg);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.logo-symbol::before {
-    content: "VH";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-45deg);
-    color: white;
-    font-size: 0.9rem;
-    font-weight: 800;
-    letter-spacing: -0.05em;
-}
-
-.logo a {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--text-primary);
-    text-decoration: none;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
-}
-
-.logo a span {
-    color: var(--primary);
-    font-weight: 700;
-}
-
-.logo:hover .logo-symbol {
-    transform: rotate(45deg) scale(1.05);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    width: 216px;
 }
 
 @media (max-width: 768px) {
     header {
         height: 64px;
         padding: 0 5%;
-    }
-    
-    .logo-symbol::before {
-        font-size: 1rem;
-    }
-    
-    .logo a {
-        font-size: 1.25rem;
     }
 }
 

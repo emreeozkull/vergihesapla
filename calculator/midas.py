@@ -300,7 +300,8 @@ class Stock:
     invalid_sell_transactions = []
     debug_buy_transactions = []
     debug_sell_transactions = []
-    profit = 0
+    profit = Decimal(0)
+    usd_profit =Decimal(0)
 
     def __init__(self, symbol: str, portfolio: Portfolio):
         self.symbol = symbol
@@ -339,9 +340,11 @@ class Stock:
                         buy_transaction.date,
                         transaction.date
                     )
+                    income_usd = transaction_quantity * (transaction.price - buy_transaction.price)
                     if transaction.date.year == 2024:
                         self.profit += income
-                    self.profits_sell_transactions.append(income)
+                        self.usd_profit += income_usd
+                        self.profits_sell_transactions.append(income)
                     buy_transaction.quantity -= transaction_quantity
                     self.portfolio.quantity -= transaction_quantity # for portfolio tracking
                     transaction.quantity -= transaction_quantity

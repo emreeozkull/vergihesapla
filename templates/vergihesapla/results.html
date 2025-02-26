@@ -16,13 +16,6 @@
             <div class="logo-symbol"></div>
             <a href="{% url 'index' %}">Vergi <span>Hesapla</span></a>
         </div>
-        <nav class="navbar">
-            <ul class="nav-links">
-                <li><a href="{% url 'index' %}#features">Özellikler</a></li>
-                <li><a href="{% url 'index' %}#pricing">Fiyatlandırma</a></li>
-                <li><a href="{% url 'index' %}#contact">İletişim</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main class="results-container">
@@ -56,10 +49,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for symbol, symbol_profit in symbol_profits %}
+                        {% for symbol, symbol_profit, symbol_usd_profit in symbol_profits %}
                         <tr>
                             <td class="symbol">{{ symbol }}</td>
-                            <td class="number">{{ symbol_profit }}</td>
+                            <td class="number">{{ symbol_profit }}₺</td>
+                            <td class="number">${{ symbol_usd_profit }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

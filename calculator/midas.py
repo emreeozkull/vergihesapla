@@ -8,6 +8,9 @@ from django.db import transaction, OperationalError, IntegrityError
 from .models import Calculator, CalculatorPDF, Transaction, Portfolio
 from pypdf import PdfReader
 
+from django.conf import settings
+import os
+
 def parse_number(text):
     """Convert a string number with comma as decimal separator to Decimal."""
     try:
@@ -257,10 +260,10 @@ class Midas:
 
 # --- UFE and Exchange Rate Functions ---
 
-with open("/Users/emreozkul/Desktop/dev-3/scripts-for-midas/hesaplayıcı/converted_ufe.json", "r") as read_file:
+with open(os.path.join(settings.BASE_DIR, "converted_ufe.json"), "r") as read_file:
     ufe_data = json.load(read_file)
 
-with open("/Users/emreozkul/Desktop/dev-3/scripts-for-midas/hesaplayıcı/exchange_rates_2020-2024.json", "r") as read_file:
+with open(os.path.join(settings.BASE_DIR, "exchange_rates_2020-2024.json"), "r") as read_file:
     rates = json.load(read_file)
 
 def get_rate(date: datetime):

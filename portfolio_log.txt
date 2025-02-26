@@ -1,0 +1,352 @@
+
+transaction pdf portfolio date: 2023-11-30 00:00:00+00:00 portfolio month: 8
+portfolio exists, transaction date: 2023-11-02 21:18:28+00:00
+check portfolio date: 2023-08-31 00:00:00+00:00
+success: MRVL - calculated portfolio:5.03300140600000 vs 5.03300140600000
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: MRVL - calculated portfolio:0E-14 vs 0
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: NVDA - calculated portfolio:40.00000000000000 vs 40.00000000000000
+
+transaction pdf portfolio date: 2023-01-31 00:00:00+00:00 portfolio month: 12
+portfolio exists, transaction date: 2023-01-09 18:35:28+00:00
+check portfolio date: 2022-12-31 00:00:00+00:00
+success: META - calculated portfolio:0.22585487900000 vs 0.22585487900000
+
+transaction pdf portfolio date: 2023-08-31 00:00:00+00:00 portfolio month: 1
+portfolio exists, transaction date: 2023-08-10 17:23:16+00:00
+check portfolio date: 2023-01-31 00:00:00+00:00
+success: META - calculated portfolio:0.52834544000000 vs 0.52834544000000
+
+transaction pdf portfolio date: 2023-10-31 00:00:00+00:00 portfolio month: 8
+portfolio exists, transaction date: 2023-10-31 23:47:26+00:00
+check portfolio date: 2023-08-31 00:00:00+00:00
+success: META - calculated portfolio:2.85872118500000 vs 2.85872118500000
+
+transaction pdf portfolio date: 2023-11-30 00:00:00+00:00 portfolio month: 10
+portfolio exists, transaction date: 2023-11-15 20:01:46+00:00
+check portfolio date: 2023-10-31 00:00:00+00:00 
+error:META - calculated portfolio:1.42936059300000 vs 2.85872118500000
+buy transactions: [{'date': '23/08/23', 'quantity': '5.03300140600000'}, {'date': '05/12/24', 'quantity': '40.00000000000000'}, {'date': '06/12/22', 'quantity': '0.22585487900000'}, {'date': '09/01/23', 'quantity': '0.30249056100000'}, {'date': '10/08/23', 'quantity': '1.50000000000000'}, {'date': '23/08/23', 'quantity': '0.83037574500000'}]
+sell transactions: [{'date': '07/03/24', 'quantity': '1.00008742800000'}, {'date': '02/11/23', 'quantity': '3.00000000000000'}, {'date': '05/11/23', 'quantity': '2.03300140600000'}, {'date': '31/10/23', 'quantity': '1.42936059200000'}]
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: META - calculated portfolio:0.10000000000000 vs 0.10000000000000
+
+transaction pdf portfolio date: 2023-04-30 00:00:00+00:00 portfolio month: 1
+portfolio exists, transaction date: 2023-04-19 23:54:26+00:00
+check portfolio date: 2023-01-31 00:00:00+00:00
+success: WBX - calculated portfolio:6.00000000000000 vs 6.00000000000000
+
+portfolio doesn't exist: transaction date: 2023-08-17 09:02:33+00:00
+check portfolio date: 2023-04-30 00:00:00+00:00
+success: WBX - calculated portfolio:0E-14 vs 0
+
+transaction pdf portfolio date: 2023-11-30 00:00:00+00:00 portfolio month: 8
+portfolio exists, transaction date: 2023-11-05 15:42:08+00:00
+check portfolio date: 2023-08-31 00:00:00+00:00
+success: WBX - calculated portfolio:190.47544148100000 vs 190.47544148100000
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: WBX - calculated portfolio:0E-14 vs 0
+
+transaction pdf portfolio date: 2023-10-31 00:00:00+00:00 portfolio month: 8
+portfolio exists, transaction date: 2023-10-23 15:29:42+00:00
+check portfolio date: 2023-08-31 00:00:00+00:00
+success: AMD - calculated portfolio:14.66087673000000 vs 14.66087673000000
+
+transaction pdf portfolio date: 2023-11-30 00:00:00+00:00 portfolio month: 10
+portfolio exists, transaction date: 2023-11-06 17:49:19+00:00
+check portfolio date: 2023-10-31 00:00:00+00:00
+success: AMD - calculated portfolio:4.66087673000000 vs 4.66087673000000
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: AMD - calculated portfolio:0E-14 vs 0
+
+transaction pdf portfolio date: 2022-12-31 00:00:00+00:00 portfolio month: 11
+portfolio exists, transaction date: 2022-12-19 10:55:02+00:00
+check portfolio date: 2022-11-30 00:00:00+00:00
+success: TSLA - calculated portfolio:0.22984043300000 vs 0.22984043300000
+
+transaction pdf portfolio date: 2023-01-31 00:00:00+00:00 portfolio month: 12
+portfolio exists, transaction date: 2023-01-02 14:03:41+00:00
+check portfolio date: 2022-12-31 00:00:00+00:00
+success: TSLA - calculated portfolio:0.78465654100000 vs 0.78465654100000
+
+transaction pdf portfolio date: 2023-02-28 00:00:00+00:00 portfolio month: 1
+portfolio exists, transaction date: 2023-02-01 02:04:46+00:00
+check portfolio date: 2023-01-31 00:00:00+00:00
+success: TSLA - calculated portfolio:1.40109274800000 vs 1.40109274800000
+
+transaction pdf portfolio date: 2023-07-31 00:00:00+00:00 portfolio month: 2
+portfolio exists, transaction date: 2023-07-24 17:23:55+00:00
+check portfolio date: 2023-02-28 00:00:00+00:00
+success: TSLA - calculated portfolio:1.69467992100000 vs 1.69467992100000
+
+transaction pdf portfolio date: 2023-08-31 00:00:00+00:00 portfolio month: 7
+portfolio exists, transaction date: 2023-08-16 22:43:48+00:00
+check portfolio date: 2023-07-31 00:00:00+00:00
+success: TSLA - calculated portfolio:2.69467992100000 vs 2.69467992100000
+
+transaction pdf portfolio date: 2023-11-30 00:00:00+00:00 portfolio month: 8
+portfolio exists, transaction date: 2023-11-02 21:16:39+00:00
+check portfolio date: 2023-08-31 00:00:00+00:00
+success: TSLA - calculated portfolio:6.71508742800000 vs 6.71508742800000
+
+transaction pdf portfolio date: 2024-03-31 00:00:00+00:00 portfolio month: 11
+portfolio exists, transaction date: 2024-03-07 21:49:07+00:00
+check portfolio date: 2023-11-30 00:00:00+00:00
+success: TSLA - calculated portfolio:8.00008742800000 vs 8.00008742800000
+
+transaction pdf portfolio date: 2024-04-30 00:00:00+00:00 portfolio month: 3
+portfolio exists, transaction date: 2024-04-24 14:07:19+00:00
+check portfolio date: 2024-03-31 00:00:00+00:00
+success: TSLA - calculated portfolio:12.00000000000000 vs 12.00000000000000
+
+transaction pdf portfolio date: 2024-11-30 00:00:00+00:00 portfolio month: 4
+portfolio exists, transaction date: 2024-11-12 13:07:41+00:00
+check portfolio date: 2024-04-30 00:00:00+00:00
+success: TSLA - calculated portfolio:18.00000000000000 vs 18.00000000000000
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: TSLA - calculated portfolio:0E-14 vs 0
+
+transaction pdf portfolio date: 2023-11-30 00:00:00+00:00 portfolio month: 8
+portfolio exists, transaction date: 2023-11-03 22:30:20+00:00
+check portfolio date: 2023-08-31 00:00:00+00:00
+success: RBLX - calculated portfolio:3.76936037700000 vs 3.76936037700000
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: RBLX - calculated portfolio:0E-14 vs 0
+
+transaction pdf portfolio date: 2023-08-31 00:00:00+00:00 portfolio month: 12
+portfolio exists, transaction date: 2023-08-08 18:26:56+00:00
+check portfolio date: 2022-12-31 00:00:00+00:00
+success: PYPL - calculated portfolio:0.21603013700000 vs 0.21603013700000
+
+transaction pdf portfolio date: 2023-11-30 00:00:00+00:00 portfolio month: 8
+portfolio exists, transaction date: 2023-11-02 21:18:07+00:00
+check portfolio date: 2023-08-31 00:00:00+00:00
+success: PYPL - calculated portfolio:7.61700082800000 vs 7.61700082800000
+
+portfolio doesn't exist: transaction date: 2024-02-10 00:26:59+00:00
+check portfolio date: 2023-11-30 00:00:00+00:00
+success: PYPL - calculated portfolio:0E-14 vs 0
+
+transaction pdf portfolio date: 2024-08-31 00:00:00+00:00 portfolio month: 2
+portfolio exists, transaction date: 2024-08-23 22:02:28+00:00
+check portfolio date: 2024-02-29 00:00:00+00:00
+success: PYPL - calculated portfolio:10.00000000000000 vs 10.00000000000000
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: PYPL - calculated portfolio:0E-14 vs 0
+
+transaction pdf portfolio date: 2023-02-28 00:00:00+00:00 portfolio month: 1
+portfolio exists, transaction date: 2023-02-28 20:01:34+00:00
+check portfolio date: 2023-01-31 00:00:00+00:00
+success: AAPL - calculated portfolio:0.19976628700000 vs 0.19976628700000
+
+transaction pdf portfolio date: 2023-05-31 00:00:00+00:00 portfolio month: 2
+portfolio exists, transaction date: 2023-05-31 08:01:46+00:00
+check portfolio date: 2023-02-28 00:00:00+00:00
+success: AAPL - calculated portfolio:0.67252204700000 vs 0.67252204700000
+
+transaction pdf portfolio date: 2023-08-31 00:00:00+00:00 portfolio month: 5
+portfolio exists, transaction date: 2023-08-04 20:56:39+00:00
+check portfolio date: 2023-05-31 00:00:00+00:00
+success: AAPL - calculated portfolio:0.93399976800000 vs 0.93399976800000
+
+transaction pdf portfolio date: 2023-11-30 00:00:00+00:00 portfolio month: 8
+portfolio exists, transaction date: 2023-11-03 22:30:52+00:00
+check portfolio date: 2023-08-31 00:00:00+00:00
+success: AAPL - calculated portfolio:5.53399976800000 vs 5.53399976800000
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: AAPL - calculated portfolio:0E-14 vs 0
+
+transaction pdf portfolio date: 2023-11-30 00:00:00+00:00 portfolio month: 8
+portfolio exists, transaction date: 2023-11-02 21:17:48+00:00
+check portfolio date: 2023-08-31 00:00:00+00:00
+success: LI - calculated portfolio:12.33754279900000 vs 12.33754279900000
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: LI - calculated portfolio:0E-14 vs 0
+
+transaction pdf portfolio date: 2023-11-30 00:00:00+00:00 portfolio month: 4
+portfolio exists, transaction date: 2023-11-03 22:29:55+00:00
+check portfolio date: 2023-04-30 00:00:00+00:00
+success: RIVN - calculated portfolio:4.77723577200000 vs 4.77723577200000
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: RIVN - calculated portfolio:0E-14 vs 0
+
+transaction pdf portfolio date: 2023-08-31 00:00:00+00:00 portfolio month: 3
+portfolio exists, transaction date: 2023-08-04 21:43:00+00:00
+check portfolio date: 2023-03-31 00:00:00+00:00
+success: MSFT - calculated portfolio:0.18173878200000 vs 0.18173878200000
+
+transaction pdf portfolio date: 2023-10-31 00:00:00+00:00 portfolio month: 8
+portfolio exists, transaction date: 2023-10-23 15:28:38+00:00
+check portfolio date: 2023-08-31 00:00:00+00:00
+success: MSFT - calculated portfolio:5.23755082700000 vs 5.23755082700000
+
+transaction pdf portfolio date: 2023-11-30 00:00:00+00:00 portfolio month: 10
+portfolio exists, transaction date: 2023-11-15 18:12:15+00:00
+check portfolio date: 2023-10-31 00:00:00+00:00
+success: MSFT - calculated portfolio:1.00055082700000 vs 1.00055082700000
+
+transaction pdf portfolio date: 2023-12-31 00:00:00+00:00 portfolio month: 11
+portfolio exists, transaction date: 2023-12-14 19:14:34+00:00
+check portfolio date: 2023-11-30 00:00:00+00:00
+success: MSFT - calculated portfolio:1.00004159500000 vs 1.00004159500000
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: MSFT - calculated portfolio:0.10004159500000 vs 0.10004159500000
+
+transaction pdf portfolio date: 2023-11-30 00:00:00+00:00 portfolio month: 3
+portfolio exists, transaction date: 2023-11-05 15:42:29+00:00
+check portfolio date: 2023-03-31 00:00:00+00:00
+success: SNAP - calculated portfolio:4.97530864100000 vs 4.97530864100000
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: SNAP - calculated portfolio:0E-14 vs 0
+
+transaction pdf portfolio date: 2023-02-28 00:00:00+00:00 portfolio month: 11
+portfolio exists, transaction date: 2023-02-26 14:11:51+00:00
+check portfolio date: 2022-11-30 00:00:00+00:00
+success: AMZN - calculated portfolio:1.00000000000000 vs 1.00000000000000
+
+transaction pdf portfolio date: 2023-08-31 00:00:00+00:00 portfolio month: 2
+portfolio exists, transaction date: 2023-08-08 18:27:35+00:00
+check portfolio date: 2023-02-28 00:00:00+00:00
+success: AMZN - calculated portfolio:1.55202036200000 vs 1.55202036200000
+
+transaction pdf portfolio date: 2023-10-31 00:00:00+00:00 portfolio month: 8
+portfolio exists, transaction date: 2023-10-31 23:46:21+00:00
+check portfolio date: 2023-08-31 00:00:00+00:00
+success: AMZN - calculated portfolio:8.84282718800000 vs 8.84282718800000
+
+transaction pdf portfolio date: 2023-12-31 00:00:00+00:00 portfolio month: 10
+portfolio exists, transaction date: 2023-12-14 19:14:57+00:00
+check portfolio date: 2023-10-31 00:00:00+00:00 
+error:AMZN - calculated portfolio:1.84282718800000 vs 8.84282718800000
+buy transactions: [{'date': '23/08/23', 'quantity': '5.03300140600000'}, {'date': '05/12/24', 'quantity': '40.00000000000000'}, {'date': '06/12/22', 'quantity': '0.22585487900000'}, {'date': '09/01/23', 'quantity': '0.30249056100000'}, {'date': '10/08/23', 'quantity': '1.50000000000000'}, {'date': '23/08/23', 'quantity': '0.83037574500000'}, {'date': '11/01/23', 'quantity': '6.00000000000000'}, {'date': '17/08/23', 'quantity': '20.00000000000000'}, {'date': '18/08/23', 'quantity': '50.47544148100000'}, {'date': '22/08/23', 'quantity': '120.00000000000000'}, {'date': '26/08/23', 'quantity': '3.00000000000000'}, {'date': '29/08/23', 'quantity': '6.59770494100000'}, {'date': '29/08/23', 'quantity': '5.06317178900000'}, {'date': '25/11/22', 'quantity': '0.22984043300000'}, {'date': '19/12/22', 'quantity': '0.18207792200000'}, {'date': '21/12/22', 'quantity': '0.37273818600000'}, {'date': '02/01/23', 'quantity': '0.16901884500000'}, {'date': '09/01/23', 'quantity': '0.08132726000000'}, {'date': '23/01/23', 'quantity': '0.36609010200000'}, {'date': '01/02/23', 'quantity': '0.29358717300000'}, {'date': '24/07/23', 'quantity': '1.00000000000000'}, {'date': '16/08/23', 'quantity': '1.76719034400000'}, {'date': '21/08/23', 'quantity': '1.00000000000000'}, {'date': '29/08/23', 'quantity': '1.96321716300000'}, {'date': '02/11/23', 'quantity': '3.00000000000000'}, {'date': '07/03/24', 'quantity': '5.00000000000000'}, {'date': '24/04/24', 'quantity': '6.00000000000000'}, {'date': '23/08/23', 'quantity': '3.76936037700000'}, {'date': '13/12/22', 'quantity': '0.21603013700000'}, {'date': '08/08/23', 'quantity': '5.00000000000000'}, {'date': '10/08/23', 'quantity': '2.40097069100000'}, {'date': '10/02/24', 'quantity': '10.00000000000000'}, {'date': '11/01/23', 'quantity': '0.19976628700000'}, {'date': '28/02/23', 'quantity': '0.47275576000000'}, {'date': '31/05/23', 'quantity': '0.26147772100000'}, {'date': '04/08/23', 'quantity': '2.60000000000000'}, {'date': '10/08/23', 'quantity': '2.00000000000000'}, {'date': '15/08/23', 'quantity': '8.00000000000000'}, {'date': '15/08/23', 'quantity': '4.33754279900000'}, {'date': '19/04/23', 'quantity': '4.77723577200000'}, {'date': '20/03/23', 'quantity': '0.18173878200000'}, {'date': '04/08/23', 'quantity': '0.76783138500000'}, {'date': '08/08/23', 'quantity': '1.00000000000000'}, {'date': '10/08/23', 'quantity': '1.00000000000000'}, {'date': '23/08/23', 'quantity': '0.76235317000000'}, {'date': '29/08/23', 'quantity': '1.52562749000000'}, {'date': '20/11/23', 'quantity': '0.10004159500000'}, {'date': '20/11/23', 'quantity': '0.90000000000000'}, {'date': '17/03/23', 'quantity': '4.97530864100000'}, {'date': '03/11/22', 'quantity': '1.00000000000000'}, {'date': '26/02/23', 'quantity': '0.55202036200000'}, {'date': '08/08/23', 'quantity': '2.00000000000000'}, {'date': '16/08/23', 'quantity': '1.71146979800000'}, {'date': '21/08/23', 'quantity': '3.57933702800000'}]
+sell transactions: [{'date': '07/03/24', 'quantity': '1.00008742800000'}, {'date': '02/11/23', 'quantity': '3.00000000000000'}, {'date': '05/11/23', 'quantity': '2.03300140600000'}, {'date': '31/10/23', 'quantity': '1.42936059200000'}, {'date': '15/11/23', 'quantity': '0.42936059300000'}, {'date': '15/11/23', 'quantity': '0.90000000000000'}, {'date': '19/04/23', 'quantity': '6.00000000000000'}, {'date': '05/11/23', 'quantity': '190.47544148100000'}, {'date': '23/10/23', 'quantity': '10.00000000000000'}, {'date': '06/11/23', 'quantity': '4.66087673000000'}, {'date': '16/08/23', 'quantity': '0.71000000000000'}, {'date': '20/11/23', 'quantity': '1.71500000000000'}, {'date': '07/03/24', 'quantity': '1.00008742800000'}, {'date': '12/11/24', 'quantity': '18.00000000000000'}, {'date': '03/11/23', 'quantity': '3.76936037700000'}, {'date': '02/11/23', 'quantity': '3.80850041400000'}, {'date': '05/11/23', 'quantity': '3.80850041400000'}, {'date': '23/08/24', 'quantity': '10.00000000000000'}, {'date': '03/11/23', 'quantity': '5.00000000000000'}, {'date': '04/11/23', 'quantity': '0.53399976800000'}, {'date': '02/11/23', 'quantity': '6.16877140000000'}, {'date': '05/11/23', 'quantity': '6.16877139900000'}, {'date': '03/11/23', 'quantity': '4.77723577200000'}, {'date': '23/10/23', 'quantity': '4.23700000000000'}, {'date': '15/11/23', 'quantity': '1.00055082700000'}, {'date': '14/12/23', 'quantity': '0.90000000000000'}, {'date': '05/11/23', 'quantity': '4.97530864100000'}, {'date': '31/10/23', 'quantity': '7.00000000000000'}]
+buy transactions: [<Transaction: 2022-11-03 14:33:45+00:00 - AMZN - Alış - 92.49000000000000 - 0E-14>, <Transaction: 2023-02-26 14:11:51+00:00 - AMZN - Alış - 94.29000000000000 - 0E-14>, <Transaction: 2023-08-08 18:27:35+00:00 - AMZN - Alış - 139.30000000000000 - 0E-14>, <Transaction: 2023-08-16 22:45:18+00:00 - AMZN - Alış - 135.56000000000000 - 0E-14>, <Transaction: 2023-08-21 22:30:21+00:00 - AMZN - Alış - 134.40000000000000 - 1.84282718800000>]
+calculated sell transactions: [<Transaction: 2023-10-31 23:46:21+00:00 - AMZN - Satış - 133.98000000000000 - 0E-14>]
+profits sell transactions: []
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: AMZN - calculated portfolio:0.14282718800000 vs 0.14282718800000
+
+transaction pdf portfolio date: 2023-11-30 00:00:00+00:00 portfolio month: 10
+portfolio exists, transaction date: 2023-11-01 22:16:47+00:00
+check portfolio date: 2023-10-31 00:00:00+00:00
+success: TQQQ - calculated portfolio:1.00000000000000 vs 1.00000000000000
+
+transaction pdf portfolio date: 2023-12-31 00:00:00+00:00 portfolio month: 11
+portfolio exists, transaction date: 2023-12-14 19:16:39+00:00
+check portfolio date: 2023-11-30 00:00:00+00:00
+success: TQQQ - calculated portfolio:70.00000000000000 vs 70.00000000000000
+
+transaction pdf portfolio date: 2024-01-31 00:00:00+00:00 portfolio month: 12
+portfolio exists, transaction date: 2024-01-08 16:29:03+00:00
+check portfolio date: 2023-12-31 00:00:00+00:00
+success: TQQQ - calculated portfolio:135.11584817300000 vs 135.11584817300000
+
+transaction pdf portfolio date: 2024-02-29 00:00:00+00:00 portfolio month: 1
+portfolio exists, transaction date: 2024-02-05 18:23:32+00:00
+check portfolio date: 2024-01-31 00:00:00+00:00
+success: TQQQ - calculated portfolio:317.11584817300000 vs 317.11584817300000
+
+transaction pdf portfolio date: 2024-03-31 00:00:00+00:00 portfolio month: 2
+portfolio exists, transaction date: 2024-03-07 23:22:55+00:00
+check portfolio date: 2024-02-29 00:00:00+00:00
+success: TQQQ - calculated portfolio:180.00000000000000 vs 180.00000000000000
+
+transaction pdf portfolio date: 2024-04-30 00:00:00+00:00 portfolio month: 3
+portfolio exists, transaction date: 2024-04-04 17:20:27+00:00
+check portfolio date: 2024-03-31 00:00:00+00:00
+success: TQQQ - calculated portfolio:80.00000000000000 vs 80.00000000000000
+
+portfolio doesn't exist: transaction date: 2024-05-07 17:39:42+00:00
+check portfolio date: 2024-04-30 00:00:00+00:00
+success: TQQQ - calculated portfolio:0E-14 vs 0
+
+transaction pdf portfolio date: 2024-06-30 00:00:00+00:00 portfolio month: 5
+portfolio exists, transaction date: 2024-06-03 18:22:06+00:00
+check portfolio date: 2024-05-31 00:00:00+00:00
+success: TQQQ - calculated portfolio:50.00000000000000 vs 50.00000000000000
+
+transaction pdf portfolio date: 2024-07-31 00:00:00+00:00 portfolio month: 6
+portfolio exists, transaction date: 2024-07-24 23:41:32+00:00
+check portfolio date: 2024-06-30 00:00:00+00:00
+success: TQQQ - calculated portfolio:15.00000000000000 vs 15.00000000000000
+
+transaction pdf portfolio date: 2024-08-31 00:00:00+00:00 portfolio month: 7
+portfolio exists, transaction date: 2024-08-01 16:50:01+00:00
+check portfolio date: 2024-07-31 00:00:00+00:00
+success: TQQQ - calculated portfolio:45.00000000000000 vs 45.00000000000000
+
+transaction pdf portfolio date: 2024-09-30 00:00:00+00:00 portfolio month: 8
+portfolio exists, transaction date: 2024-09-03 22:56:28+00:00
+check portfolio date: 2024-08-31 00:00:00+00:00
+success: TQQQ - calculated portfolio:150.00000000000000 vs 150.00000000000000
+
+transaction pdf portfolio date: 2024-11-30 00:00:00+00:00 portfolio month: 9
+portfolio exists, transaction date: 2024-11-12 13:15:55+00:00
+check portfolio date: 2024-09-30 00:00:00+00:00
+success: TQQQ - calculated portfolio:190.00000000000000 vs 190.00000000000000
+
+transaction pdf portfolio date: 2024-12-31 00:00:00+00:00 portfolio month: 11
+portfolio exists, transaction date: 2024-12-19 12:44:46+00:00
+check portfolio date: 2024-11-30 00:00:00+00:00
+success: TQQQ - calculated portfolio:190.00000000000000 vs 190.00000000000000
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: TQQQ - calculated portfolio:0E-14 vs 0
+
+transaction pdf portfolio date: 2024-02-29 00:00:00+00:00 portfolio month: 11
+portfolio exists, transaction date: 2024-02-08 19:34:55+00:00
+check portfolio date: 2023-11-30 00:00:00+00:00
+success: QQQ - calculated portfolio:1.00000000000000 vs 1.00000000000000
+
+transaction pdf portfolio date: 2024-03-31 00:00:00+00:00 portfolio month: 2
+portfolio exists, transaction date: 2024-03-25 21:13:14+00:00
+check portfolio date: 2024-02-29 00:00:00+00:00
+success: QQQ - calculated portfolio:5.00000000000000 vs 5.00000000000000
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: QQQ - calculated portfolio:0E-14 vs 0
+
+transaction pdf portfolio date: 2023-02-28 00:00:00+00:00 portfolio month: 11
+portfolio exists, transaction date: 2023-02-26 14:11:37+00:00
+check portfolio date: 2022-11-30 00:00:00+00:00
+success: GOOGL - calculated portfolio:0.34722222200000 vs 0.34722222200000
+
+transaction pdf portfolio date: 2023-03-31 00:00:00+00:00 portfolio month: 2
+portfolio exists, transaction date: 2023-03-03 23:14:18+00:00
+check portfolio date: 2023-02-28 00:00:00+00:00
+success: GOOGL - calculated portfolio:0.90339574800000 vs 0.90339574800000
+
+transaction pdf portfolio date: 2023-08-31 00:00:00+00:00 portfolio month: 3
+portfolio exists, transaction date: 2023-08-23 18:46:46+00:00
+check portfolio date: 2023-03-31 00:00:00+00:00
+success: GOOGL - calculated portfolio:1.24158791800000 vs 1.24158791800000
+
+transaction pdf portfolio date: 2023-10-31 00:00:00+00:00 portfolio month: 8
+portfolio exists, transaction date: 2023-10-23 15:25:22+00:00
+check portfolio date: 2023-08-31 00:00:00+00:00
+success: GOOGL - calculated portfolio:7.85570104800000 vs 7.85570104800000
+
+transaction pdf portfolio date: 2023-11-30 00:00:00+00:00 portfolio month: 10
+portfolio exists, transaction date: 2023-11-05 15:40:16+00:00
+check portfolio date: 2023-10-31 00:00:00+00:00
+success: GOOGL - calculated portfolio:1.85570104800000 vs 1.85570104800000
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: GOOGL - calculated portfolio:0E-14 vs 0
+
+transaction pdf portfolio date: 2023-12-31 00:00:00+00:00 portfolio month: 11
+portfolio exists, transaction date: 2023-12-14 19:13:31+00:00
+check portfolio date: 2023-11-30 00:00:00+00:00
+success: BRK.B - calculated portfolio:5.00000000000000 vs 5.00000000000000
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: BRK.B - calculated portfolio:0.10000000000000 vs 0.10000000000000
+
+transaction pdf portfolio date: 2022-12-31 00:00:00+00:00 portfolio month: 11
+portfolio exists, transaction date: 2022-12-06 18:07:32+00:00
+check portfolio date: 2022-11-30 00:00:00+00:00
+success: HEPS - calculated portfolio:15.00000000000000 vs 15.00000000000000
+
+transaction pdf portfolio date: 2023-04-30 00:00:00+00:00 portfolio month: 12
+portfolio exists, transaction date: 2023-04-20 18:34:54+00:00
+check portfolio date: 2022-12-31 00:00:00+00:00
+success: HEPS - calculated portfolio:33.00000000000000 vs 33.00000000000000
+check portfolio date: 2024-12-31 00:00:00+00:00
+success: HEPS - calculated portfolio:0E-14 vs 0

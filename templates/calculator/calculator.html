@@ -3,23 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vergi Hesaplayıcı</title>
+    <title>Ekstre Yükleme - Vergi Hesapla</title>
     {% load static %}
-    
-    <meta name="description" content="Vergi Hesapla kullanarak kolayca Amerikan borsalarındaki vergilerinizi hesaplayabilirsiniz.">
-    <link rel="icon" href="./images/favicon.svg">
+    <meta name="description" content="Midas uygulamasından indirdiğiniz ABD borsalarındaki yatırımlarınızla ilgili aylık ekstrelerinizi yükleyerek vergi hesaplaması yapabilirsiniz.">
+    <link rel="icon" href="{% static 'vergihesapla/images/favicon.svg' %}">
     <link rel="stylesheet" href="{% static 'vergihesapla/styles/calculator.css' %}">
 
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    {% csrf_token %}
     <header>
         <div class="logo">
-            <div class="logo-symbol"></div>
-            <a href="{% url 'index' %}">Vergi <span>Hesapla</span></a>
+            <a href="{% url 'index' %}">
+                <img src="{% static 'vergihesapla/images/logo2.svg' %}" alt="Vergi Hesapla logo">
+            </a>
         </div>
     </header>
 
@@ -30,7 +28,7 @@
             <div class="warning-banner">
                 <i class="fas fa-exclamation-triangle"></i>
                 <p>
-                    Bu hesaplama aracı sadece referans amaçlıdır. Vergi beyannamesi vermeden önce mutlaka bir mali müşavir ile görüşmenizi öneririz.
+                    Bu hesaplama aracı sadece referans amaçlı olup muhasebe hizmeti niteliği taşımamaktadır. Vergi beyannamesi vermeden önce tüm gelir ve gider kalemlerinizi göz önüne almanızı ve mutlaka bir mali müşavir ile görüşmenizi öneririz.
                 </p>
             </div>
 

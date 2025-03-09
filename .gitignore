@@ -4,3 +4,4 @@ __pycache__
 pdfs/
 error_transaction.txt
 transactions.txt
+portfolio_log.txt
